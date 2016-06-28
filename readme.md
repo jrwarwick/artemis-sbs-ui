@@ -1,5 +1,5 @@
-Artemis Glitter UI Style Clone in CSS
-=====================================
+Imitation Artemis SBS UI in HTML5/CSS/JS for Enhanced Ambiance
+==============================================================
 
 Environmental decoration for Artemis. Even if information is not functionally meaningful, the experience is enhanced by giving a feeling of authenticity, ambiance. 
 
