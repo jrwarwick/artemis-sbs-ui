@@ -1,0 +1,63 @@
+@-webkit-keyframes sweep {
+  0% {
+    -webkit-transform: scaleY(0.1);
+            transform: scaleY(0.1);
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+@keyframes sweep {
+  0% {
+    -webkit-transform: scaleY(0.1);
+            transform: scaleY(0.1);
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+.zx-load-col {
+  background: #6ea032;
+  display: inline-block;
+  height: 10em;
+  width: .75em;
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+  -webkit-animation: sweep 10s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite both alternate;
+          animation: sweep 10s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite both alternate;
+}
+.zx-load-col:nth-child(7) {
+  -webkit-animation-delay: -3.75s;
+          animation-delay: -3.75s;
+}
+.zx-load-col:nth-child(6) {
+  -webkit-animation-delay: -7.5s;
+          animation-delay: -7.5s;
+}
+.zx-load-col:nth-child(5) {
+  -webkit-animation-delay: -11.25s;
+          animation-delay: -11.25s;
+}
+.zx-load-col:nth-child(4) {
+  -webkit-animation-delay: -15s;
+          animation-delay: -15s;
+}
+.zx-load-col:nth-child(3) {
+  -webkit-animation-delay: -18.75s;
+          animation-delay: -18.75s;
+}
+.zx-load-col:nth-child(2) {
+  -webkit-animation-delay: -22.5s;
+          animation-delay: -22.5s;
+}
+.zx-load-col:nth-child(1) {
+  -webkit-animation-delay: -26.25s;
+          animation-delay: -26.25s;
+}
+.zx-load-col:nth-child(0) {
+  -webkit-animation-delay: -30s;
+          animation-delay: -30s;
+}
+

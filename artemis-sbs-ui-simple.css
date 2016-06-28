@@ -1,0 +1,143 @@
+/* An attempt to provide smooth integration with the native Artemis SBS GUI
+*  for DIY displays and control UIs implemented with web technologies.
+*  You could use this file directly, but it mostly is intended to serve as 
+*  a document to guide you in configuring jquery UI's ThemeRoller.
+*  This version is mostly compatible with older browsers, and assumes no images.
+*  Super Simple. Consider this file mutually exclusive with the "regular" edition.
+*  justin.warwick@gmail.com  1/2016
+*  Thanks to: 
+*  http://www.colorzilla.com/gradient-editor/
+*  https://developer.mozilla.org/en-US/docs/Web
+*  https://www.google.com/fonts  
+*  and of course:  http://artemis.eochu.com/
+*/
+
+
+@import url(https://fonts.googleapis.com/css?family=Ropa+Sans:400,400italic);
+
+
+/* General Defaults */
+body {
+	color: #FFFFFF;
+	background-color: #000020;
+	font-family: 'Ropa Sans', Arial, Helvetica, sans-serif;
+	/*Gadget, sans-serif;*/
+}
+
+button {
+	font-family: 'Ropa Sans', Arial, Helvetica, sans-serif;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 1.75em;
+	color: #FDFDFF;
+	background-color: #001C47;
+	border-top: 2px solid #335066;
+	border-right: none;
+		/*border-right: 2px solid #335066;*/
+	border-bottom: 2px solid #2378A9;
+	border-left: none;
+		/*border-left: 3px solid #335066;*/
+	padding: .1em 1em .1em 2em ;
+	text-align:right;
+
+	background-image: url('button_L_cap.png') , url('button_R_cap.png') ;
+	background-repeat: no-repeat, no-repeat;
+	background-position: left, right;
+	vertical-align: bottom;
+
+
+	width: 8em;
+	padding-top: 0em;
+	padding-bottom: 0em;
+}
+
+/* Semantic Classes */
+.urgent {
+	color: #F76263;
+}
+
+.ship_metrics { 
+}
+.ship_metrics td {
+	padding-left: 1em;
+	padding-top: 0em;
+	padding-bottom: 0em;
+} 
+.ship_metrics tr td:first-child
+{ 
+	text-align: right;
+	padding-right:1em;
+	padding-left:2.5em;
+
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3caeda+0,164b87+100 */
+	background: #3caeda; /* Old browsers */
+	background: -moz-linear-gradient(top,  #3caeda 0%, #164b87 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #3caeda 0%,#164b87 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #3caeda 0%,#164b87 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3caeda', endColorstr='#164b87',GradientType=0 ); /* IE6-9 */
+
+}
+
+
+.target_metric
+{
+}
+
+table.vertical_threshold_bracket {
+        border-top: 4px solid #ffdd66;
+        border-left: 4px solid #ffdd70;
+        border-bottom: 4px solid #ffdd66;
+        /* nice, but not consistent with contiguous bracket color   border-collapse: collapse;*/
+        border-spacing: 0em;
+}
+table.vertical_threshold_bracket td {
+        /* font-weight: bold; */
+}
+table.vertical_threshold_bracket td.critical_threshold {
+        border-left: 5px solid #F76263;
+}
+table.vertical_threshold_bracket td.nominal_threshold {
+        border-left: 5px solid #39F33B;
+}
+
+
+table.cartograph {
+        border: 2px solid #202550;
+        border-collapse: collapse;
+}
+table.cartograph td {
+        border: 2px solid #151AA5;
+        width: 6em;
+        height: 6em;
+        text-align: left;
+        vertical-align: top;
+        font-size: 1em;
+        color: #4048B0;
+}
+
+
+
+/* Conventional layout */
+#super_container {
+        margin: .5em;
+}
+
+#console_super_controls button {
+        margin-right: -.25em;
+}
+
+#communique {
+        background-color: #222244;
+        border: .25em solid #181828;
+        margin-left: 2em;
+        margin-right: 2em;
+        margin-bottom: -2em;
+        padding: 1em;
+}
+#communique button.action {
+        float:right;
+        margin-top: 1em;
+        margin-right:-1em;
+}
+
+

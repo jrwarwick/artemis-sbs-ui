@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Artemis - Cartography</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="Faux GUI supplement for set-dressing a gaming session of Artemis SBS." />
+        <meta name="author" content="Justin Warwick" />
+        <link rel='stylesheet' href='./artemis-sbs-ui.css' />
+        <!-- Here would be a good place to put your own additional css link for unique/special things like spacing adjsutments based on element ID. The fewer changes in artemis-sbs-ui.css,  the better (esp. if you might want to share improvements that really are general purpose)  -->
+<style>
+	#maincontain {
+		width:100%;
+		height:100%;
+		margin: .75em;
+		padding:.75em;
+	}
+
+	.chart {
+		width: 100%;
+		height:100%;
+		margin:0; padding:0;
+		border-collapse: collapse;
+		border-spacing: 0;
+		empty-cells: show;
+		/*table-layout: fixed;*/
+	}
+	.chart  tr  td {
+		height:20%;
+		width: 20%;
+		border: 2px solid #DDDDFF;
+		margin:0; padding:0;
+		vertical-align:top;
+	}
+
+	.sector {
+		width: 100%;
+		height:100%;
+		border-spacing: 0;
+		empty-cells: show;
+		margin:0; padding:0;
+		border-collapse: collapse;
+		border-spacing: 0;
+		empty-cells: show;
+
+		/*border:none;*/
+	}
+	.sector td.quadrant {
+		width: 50%; height:50%;
+		vertical-align:top;
+		border: 1px dashed #C0C0DA;
+		padding:2px;
+	}
+
+	/*dynamics*/
+	#chart .sectB {
+		background-color: #505DA0;
+	}
+	#chart .sect4 {
+		background-color: #505DA0;
+	}
+
+/*
+	.chart {
+		background-color:black;
+		background-image:
+		radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+		radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+		radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+		radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+		background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
+		background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+	}
+*/
+	
+</style>
+</head>
+<body>
+<div id="super_container">
+        <div id="console_super_controls">
+                <button class="major_action major_action_active">VISIBLE</button>
+                <button class="major_action">SECTOR</button>
+                <button class="major_action">GALAXY</button>
+        </div>
+
+
+        <div id="communique" >
+                <h1>Welcome to Artemis Glitter UI Style Clone Test</h1>
+                <p>Status and information flowing endlessly, giving a certain ambience.</p>
+                <p>Even if information is not functionally meaningful, the experience is enhance by giving a feeling of authenticity.</p>
+                <p>Presumably, you want to fill the screen pretty evenly, if browser were in fullscreen mode. But also becareful not to overflow or else you get scrollbars that spoil the effect a little. Hopefully this page is clean and clear enough that you could copy it, rename it, then start copy and pasting segments that you like and just replace the content and order a little and then you have yourself a custom faux console.</p>
+                <button class="action" onclick="javascript:this.parentNode.style.display = 'none';">ACKNOWLEDGE</button>
+                <!--Probably it is better to put onclick and other evenhandler code in a seperate script block, even in a separate JS file. But this works ok too.-->
+        </div>
+
+
+	<div id="maincontain">
+	<table class="chart starry_expanse">
+		<tr class="sectA">
+			<td class="sect1">
+				<table class="sector">
+					<tr><td class="quadrant">A1</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect2">
+				<table class="sector">
+					<tr><td class="quadrant">A2</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect3">
+				<table class="sector">
+					<tr><td class="quadrant">A3</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect4">
+				<table class="sector">
+					<tr><td class="quadrant">A4</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect5">
+				<table class="sector">
+					<tr><td class="quadrant">A5</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="sectB">
+			<td class="sect1">
+				<table class="sector">
+					<tr><td class="quadrant">B1</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect2">
+				<table class="sector">
+					<tr><td class="quadrant">B2</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect3">
+				<table class="sector">
+					<tr><td class="quadrant">B3</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect4">
+				<table class="sector">
+					<tr><td class="quadrant">B4</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect5">
+				<table class="sector">
+					<tr><td class="quadrant">B5</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="sectC">
+			<td class="sect1">
+				<table class="sector">
+					<tr><td class="quadrant">C1</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect2">
+				<table class="sector">
+					<tr><td class="quadrant">C2</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect3">
+				<table class="sector">
+					<tr><td class="quadrant">C3</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect4">
+				<table class="sector">
+					<tr><td class="quadrant">C4</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect5">
+				<table class="sector">
+					<tr><td class="quadrant">C5</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="sectD">
+			<td class="sect1">
+				<table class="sector">
+					<tr><td class="quadrant">D1</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect2">
+				<table class="sector">
+					<tr><td class="quadrant">D2</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect3">
+				<table class="sector">
+					<tr><td class="quadrant">D3</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect4">
+				<table class="sector">
+					<tr><td class="quadrant">D4</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect5">
+				<table class="sector">
+					<tr><td class="quadrant">D5</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="sectE">
+			<td class="sect1">
+				<table class="sector">
+					<tr><td class="quadrant">E1</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect2">
+				<table class="sector">
+					<tr><td class="quadrant">E2</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect3">
+				<table class="sector">
+					<tr><td class="quadrant">E3</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect4">
+				<table class="sector">
+					<tr><td class="quadrant">E4</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+			<td class="sect5">
+				<table class="sector">
+					<tr><td class="quadrant">E5</td><td class="quadrant"></td></tr>
+					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	</div>
+	<div style="font-size:.75em;">
+		floating, wrapping div should display on right if landscape or below if portrait
+	Present Position
+		Sector, Quadrant
+		Coordinates: X, Y
+	Previous Position
+		Sector, Quadrant
+		Sector, Quadrant
+
+	Expanse
+		X, Y 
+		Total Area
+
+	Sector Size
+	Quadrant size
+	Territorial Control Sectors
+
+	Prohibited Sectors
+	Occupied Sectors
+
+</div>
+
+
+</div>
+<script>
+	window.console && console.log( window.innerWidth 
+			+ ',' + window.innerHeight 
+			+ ',' + window.innerHeight / window.innerWidth * 100
+			+ ',' + ( window.innerHeight / window.innerWidth ) * window.innerWidth
+	);
+
+	//window.console && console.log( document.body.style );
+	window.console && console.log(  "padding: " + 
+	window.getComputedStyle(document.getElementById("maincontain")).getPropertyValue("margin")
+			);
+
+	window.console && console.log(
+	window.getComputedStyle(document.getElementById("maincontain"),null).getPropertyValue("margin-top")
+		   );	
+
+	function displayAdjust() {
+
+		var squaring = window.innerHeight / window.innerWidth ;
+		var margins = window.getComputedStyle(document.getElementById("maincontain"),null).getPropertyValue("margin-top");
+		margins = margins.replace(/[pP][xX]/,"");
+		margins = parseInt(margins) + parseInt(window.getComputedStyle(document.getElementById("console_super_controls"),null).getPropertyValue("height").replace(/[pP][xX]/,""));
+		//window.console && console.log("margins: " + margins);
+		document.getElementById("maincontain").style.width =  (window.innerWidth - 2 * margins) * squaring + "px";
+		document.getElementById("maincontain").style.height=  window.innerHeight - 2 * margins + "px";;
+	}
+
+	displayAdjust();
+	window.onresize = displayAdjust;
+</script>
+</body>
+</html>

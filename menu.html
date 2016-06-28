@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Artemis - Supplementary Console Selection</title>
+	<meta charset="utf-8" /> 
+	<meta name="description" content="Faux GUI supplement for set-dressing a gaming session of Artemis SBS." />
+	<meta name="author" content="Justin Warwick" />
+	<link rel='stylesheet' href='./artemis-sbs-ui.css' />
+	<!-- Here would be a good place to put your own additional css link for unique/special things like spacing adjsutments based on element ID. The fewer changes in artemis-sbs-ui.css,  the better (esp. if you might want to share improvements that really are general purpose)  -->
+        <script src="./artemis-sbs-ui.js"></script>
+</head>
+<body>
+<div id="super_container">
+        <div id="console_super_controls">
+		<button class="major_action major_action_active">MENU</button>
+		<button class="major_action" onclick="window.location.href='chronometer.html';">CHRONOMETER</button>
+		<button class="major_action" onclick="window.location.href='lifesupport.html';">LIFE SUPPORT</button>
+		<button class="major_action" onclick="window.location.href='cartography.html';">CARTOGRAPHY</button>
+	</div>
+
+
+	<div id="communique" > 
+		<h1>Welcome to Artemis Glitter UI Style supplementary console selection</h1>
+		<p>Status and information flowing endlessly, giving a certain ambiance.</p>
+		<p>Even if information is not functionally meaningful, the experience is enhance by giving a feeling of authenticity.</p>
+		<p>Presumably, you want to fill the screen pretty evenly, if browser were in fullscreen mode. But also becareful not to overflow or else you get scrollbars that spoil the effect a little. Hopefully this page is clean and clear enough that you could copy it, rename it, then start copy and pasting segments that you like and just replace the content and order a little and then you have yourself a custom faux console.</p>
+		<button class="action" onclick="javascript:this.parentNode.style.display = 'none';">ACKNOWLEDGE</button>
+		<!--Probably it is better to put onclick and other evenhandler code in a seperate script block, even in a separate JS file. But this works ok too.-->
+	</div>
+
+
+	<div>
+		<h2>Alert Status: Nominal</h2>
+		<h2>Captain's Log: Supplemental</h2>
+		<p>ALPHA CONDITION ACTIVE</p>
+		<ul>
+			<li>Gravitational wave detected</li>
+			<li class="confirmed">Subspace aperture confirmed</li>
+			<li>polarity nominal</li>
+			<li>data acquisition in progress</li>
+		</ul>
+		<button class="action">INTRACOMM</button>
+	</div>
+
+
+
+</div>
+
+<script>
+window.console && console.log("TODO some dynamicness");
+
+
+</script>
+</body>
+</html>

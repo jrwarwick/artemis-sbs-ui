@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Artemis - Mission Time Clock</title>
+	<meta charset="utf-8" /> 
+	<meta name="description" content="Faux GUI supplement for set-dressing a gaming session of Artemis SBS." />
+        <meta name="author" content="Justin Warwick" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<script src="./artemis-sbs-ui.js"></script>
+	<link rel='stylesheet' href='./artemis-sbs-ui.css' />
+
+	<!-- Here would be a good place to put your own additional css link for unique/special things like spacing adjsutments based on element ID. The fewer changes in artemis-sbs-ui.css,  the better (esp. if you might want to share improvements that really are general purpose)  -->
+	<style>
+		#chrono_container {
+			padding-left: 2em;
+		}
+		.timedisplay {
+			margin-right: 1em;
+		}
+		/* CSS Animated circle clock */
+		.tWrapper {
+		  position: relative;
+		  display:inline-block;
+		  margin: .25em .25em;
+		  background: #00001C;
+		}
+
+		.tWrapper, .tWrapper * {
+		  -moz-box-sizing: border-box;
+		  -webkit-box-sizing: border-box;
+		  box-sizing: border-box;
+		}
+
+		.tWrapper {
+		  width: 3em;			/* <-- Main size control here */
+		  height: 3em;
+		}
+
+		.tWrapper .pie {
+		  width: 50%;
+		  height: 100%;
+		  transform-origin: 100% 50%;
+		  position: absolute;
+		  background: #00001C;
+		  border: .33em solid #DDA050;      /* <-- Main color control here */
+		}
+
+		.tWrapper .spinner {
+		  border-radius: 100% 0 0 100% / 50% 0 0 50%;
+		  z-index: 200;
+		  border-right: none;
+		  animation: rota 10.888s linear infinite;
+		}
+
+		.tWrapper:hover .spinner,
+		.tWrapper:hover .filler,
+		.tWrapper:hover .mask {
+		  animation-play-state: running;
+		}
+
+		.tWrapper .filler {
+		  border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+		  left: 50%;
+		  opacity: 0;
+		  z-index: 100;
+		  animation: opa 10.888s steps(1, end) infinite reverse;
+		  border-left: none;
+		}
+
+		.tWrapper .mask {
+		  width: 50%;
+		  height: 100%;
+		  position: absolute;
+		  background: inherit;
+		  opacity: 1;
+		  z-index: 300;
+		  animation: opa 10.888s steps(1, end) infinite;
+		}
+
+		@keyframes rota {
+		  0% {
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    transform: rotate(360deg);
+		  }
+		}
+		@keyframes opa {
+		  0% {
+		    opacity: 1;
+		  }
+		  50%, 100% {
+		    opacity: 0;
+		  }
+		}
+
+	</style>
+
+</head>
+<body>
+<div id="super_container">
+	<!--TODO fix js first, then style this thing to absolute bottom right hand corner
+	<div id="console_metacontrols">
+	   <a href="javascript:toggleFullScreen();">o</a>              
+	</div>
+	-->
+        <div id="console_super_controls">
+		<button class="major_action major_action_active">START</button>
+		<button class="major_action">HALT</button>
+		<button class="major_action" onclick="javascript:missionMark=0;">RESET</button>
+	</div>
+
+
+	<div id="communique" > 
+		<h1>Welcome to Artemis Glitter UI Style Clone Test</h1>
+		<p>Status and information flowing endlessly, giving a certain ambience.</p>
+		<p>Even if information is not functionally meaningful, the experience is enhance by giving a feeling of authenticity.</p>
+		<p>Presumably, you want to fill the screen pretty evenly, if browser were in fullscreen mode. But also becareful not to overflow or else you get scrollbars that spoil the effect a little. Hopefully this page is clean and clear enough that you could copy it, rename it, then start copy and pasting segments that you like and just replace the content and order a little and then you have yourself a custom faux console.</p>
+		<button class="action" onclick="javascript:this.parentNode.style.display = 'none';">ACKNOWLEDGE</button>
+		<!--Probably it is better to put onclick and other evenhandler code in a seperate script block, even in a separate JS file. But this works ok too.-->
+	</div>
+
+
+	<div id="chrono_container">
+		<div>
+			<h3>Mission Time Mark</h3>
+			<span id="MissionTimeMark" class="jumbo timedisplay">HH:MI:SS</span>
+			<div class="tWrapper">
+			  <div class="pie spinner"></div>
+			  <div class="pie filler"></div>
+			  <div class="mask"></div>
+			</div>
+					
+			<h3>Time Remaining</h3>
+			<span id="MissionTimeRemain" class="jumbo timedisplay">HH:MI:SS</span>
+			<h3>UTC</h3>
+			<span id="UTCTime" class="jumbo timedisplay">HH:MI:SS</span>
+			<h3>Local Time</h3>
+			<span id="LocalTime" class="jumbo timedisplay">HH:MI:SS</span>
+			<div class="tWrapper">
+			  <div class="pie spinner"></div>
+			  <div class="pie filler"></div>
+			  <div class="mask"></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="dualpresentation2" class="wrapper2column">
+		<div class="leftcolumn">
+			<table class="vertical_threshold_bracket">
+				<tr><td class="critical_threshold">_</td></tr>
+				<tr><td class="critical_threshold">_</td></tr>
+				<tr><td>&mdash;</td></tr>
+				<tr><td>-</td></tr>
+			</table>
+		</div>
+		<div class="rightcolumn">
+			relativisitic time dilation factor
+			sine wave or number grid or something? 
+		</div>
+	</div>
+
+
+</div>
+
+<script>
+window.console && console.log("TODO some dynamicness");
+
+function termAlert() {
+	audioAlert();
+
+	//redify other stuff?
+}
+
+var missionLength = 900 ; //seconds, so 15 minutes = 900
+var missionMark = 0; //seconds
+var etc = new Date(Date.now() + missionLength * 1000);
+var dt0 = new Date(Date.now());
+var metricSecondFactor = (10000000000 / 9192631770); //SI cesium oscillation basis, but rounded up to a nice power of 10
+
+var tid = window.setInterval(function(){
+	var dt = new Date(Date.now());
+	var HH = "0" + dt.getHours();
+	var mm = "0" + dt.getMinutes();
+	var ss = "0" + dt.getSeconds();
+	document.getElementById("LocalTime").innerHTML = HH.substr(HH.length - 2) + ":" + mm.substr(mm.length - 2) + ":" + ss.substr(ss.length - 2);
+
+	var HH = "0" + dt.getUTCHours();
+	var mm = "0" + dt.getUTCMinutes();
+	var ss = "0" + dt.getUTCSeconds();
+	document.getElementById("UTCTime").innerHTML = HH.substr(HH.length - 2) + ":" + mm.substr(mm.length - 2) + ":" + ss.substr(ss.length - 2);
+
+	remain = (missionLength - missionMark) ;
+	if (remain < 0) {
+		document.getElementById("MissionTimeRemain").style.color = "#DF3030";
+		if (remain % 10 == -1 ) {
+			termAlert();
+		}
+		remain = -1 * remain;
+	}
+	document.getElementById("MissionTimeRemain").innerHTML = ((missionLength - missionMark) < 0 ? '-' : '') 
+		+ ('0' + Math.floor(remain / 3600)).slice(-2) + ":" 
+		+ ('0' + (Math.floor(remain / 60) % 60)).slice(-2) + ":" 
+		+ ('0' + (remain % 60)).slice(-2);
+
+	document.getElementById("MissionTimeMark").innerHTML = ('0' + Math.floor(missionMark / 3600)).slice(-2) + ":" 
+		+ ('0' + (Math.floor(missionMark / 60) % 60)).slice(-2) + ":" 
+		+ ('0' + (missionMark % 60)).slice(-2);
+	missionMark ++;
+	//TODO: if "paused" then add one second to the etc
+	if ( missionMark % 109 == 0 )  { //this is a gross approximation of the factor * 100 metricseconds to get a hectosecond 
+		console.log("one 'metric' minute or 'hectosecond' has passed.");
+		//earlier on, we have a css animation that uses a slightly better approximation for the ring period counter, which is one dekasecond
+	}
+
+}, 1000);
+//sync up with beginning of clock run?//document.getElementByID("tWrapper").animation-play-state: paused;
+
+</script>
+</body>
+</html>
