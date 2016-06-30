@@ -6,7 +6,6 @@
 	<meta name="description" content="Faux GUI supplement for set-dressing a gaming session of Artemis SBS." />
         <meta name="author" content="Justin Warwick" />
 	<meta name="mobile-web-app-capable" content="yes" />
-	<script src="./artemis-sbs-ui.js"></script>
 	<link rel='stylesheet' href='./artemis-sbs-ui.css' />
 
 	<!-- Here would be a good place to put your own additional css link for unique/special things like spacing adjsutments based on element ID. The fewer changes in artemis-sbs-ui.css,  the better (esp. if you might want to share improvements that really are general purpose)  -->
@@ -18,25 +17,25 @@
 			margin-right: 1em;
 		}
 		/* CSS Animated circle clock */
-		.tWrapper {
+		.timeCycWrapper {
 		  position: relative;
 		  display:inline-block;
-		  margin: .25em .25em;
+		  margin: 1.5em 2em;
 		  background: #00001C;
 		}
 
-		.tWrapper, .tWrapper * {
+		.timeCycWrapper, .timeCycWrapper * {
 		  -moz-box-sizing: border-box;
 		  -webkit-box-sizing: border-box;
 		  box-sizing: border-box;
 		}
 
-		.tWrapper {
+		.timeCycWrapper {
 		  width: 3em;			/* <-- Main size control here */
 		  height: 3em;
 		}
 
-		.tWrapper .pie {
+		.timeCycWrapper .pie {
 		  width: 50%;
 		  height: 100%;
 		  transform-origin: 100% 50%;
@@ -45,20 +44,20 @@
 		  border: .33em solid #DDA050;      /* <-- Main color control here */
 		}
 
-		.tWrapper .spinner {
+		.timeCycWrapper .spinner {
 		  border-radius: 100% 0 0 100% / 50% 0 0 50%;
 		  z-index: 200;
 		  border-right: none;
 		  animation: rota 10.888s linear infinite;
 		}
 
-		.tWrapper:hover .spinner,
-		.tWrapper:hover .filler,
-		.tWrapper:hover .mask {
+		.timeCycWrapper:hover .spinner,
+		.timeCycWrapper:hover .filler,
+		.timeCycWrapper:hover .mask {
 		  animation-play-state: running;
 		}
 
-		.tWrapper .filler {
+		.timeCycWrapper .filler {
 		  border-radius: 0 100% 100% 0 / 0 50% 50% 0;
 		  left: 50%;
 		  opacity: 0;
@@ -67,7 +66,7 @@
 		  border-left: none;
 		}
 
-		.tWrapper .mask {
+		.timeCycWrapper .mask {
 		  width: 50%;
 		  height: 100%;
 		  position: absolute;
@@ -95,15 +94,13 @@
 		}
 
 	</style>
-
+	<script src="./artemis-sbs-ui.js"></script>
 </head>
 <body>
 <div id="super_container">
-	<!--TODO fix js first, then style this thing to absolute bottom right hand corner
 	<div id="console_metacontrols">
-	   <a href="javascript:toggleFullScreen();">o</a>              
+	   <a href="javascript:toggleFullScreen();" id="fullscreenToggle">[=]</a>     
 	</div>
-	-->
         <div id="console_super_controls">
 		<button class="major_action major_action_active">START</button>
 		<button class="major_action">HALT</button>
@@ -125,7 +122,7 @@
 		<div>
 			<h3>Mission Time Mark</h3>
 			<span id="MissionTimeMark" class="jumbo timedisplay">HH:MI:SS</span>
-			<div class="tWrapper">
+			<div class="timeCycWrapper">
 			  <div class="pie spinner"></div>
 			  <div class="pie filler"></div>
 			  <div class="mask"></div>
@@ -133,11 +130,13 @@
 					
 			<h3>Time Remaining</h3>
 			<span id="MissionTimeRemain" class="jumbo timedisplay">HH:MI:SS</span>
+			<button class="increment" onclick="missionLength+=60;"> </button>
+			<button class="decrement" onclick="missionLength-=60;"> </button>
 			<h3>UTC</h3>
 			<span id="UTCTime" class="jumbo timedisplay">HH:MI:SS</span>
 			<h3>Local Time</h3>
 			<span id="LocalTime" class="jumbo timedisplay">HH:MI:SS</span>
-			<div class="tWrapper">
+			<div class="timeCycWrapper">
 			  <div class="pie spinner"></div>
 			  <div class="pie filler"></div>
 			  <div class="mask"></div>
@@ -155,8 +154,8 @@
 			</table>
 		</div>
 		<div class="rightcolumn">
-			relativisitic time dilation factor
-			sine wave or number grid or something? 
+			<p>Relativisitic time dilation factor: 2.718</p>
+			<p>modulated sine wave calculating...</p>
 		</div>
 	</div>
 
@@ -214,7 +213,7 @@ var tid = window.setInterval(function(){
 	}
 
 }, 1000);
-//sync up with beginning of clock run?//document.getElementByID("tWrapper").animation-play-state: paused;
+//sync up with beginning of clock run?//document.getElementByID("timeCycWrapper").animation-play-state: paused;
 
 </script>
 </body>

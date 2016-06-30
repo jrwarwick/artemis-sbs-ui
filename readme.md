@@ -53,6 +53,7 @@ for software resources:
 *  https://www.google.com/fonts  
 *  https://github.com/SamHerbert/SVG-Loaders
 *  http://codepen.io/colin/pen/kKCDp
+*  https://github.com/sindresorhus/screenfull.js
 
 for information and references:
 *  http://www.st-v-sw.net/STSWvolumetrics.html

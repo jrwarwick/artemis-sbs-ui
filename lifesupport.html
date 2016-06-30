@@ -7,9 +7,13 @@
         <meta name="author" content="Justin Warwick" />
 	<link rel='stylesheet' href='./artemis-sbs-ui.css' />
 	<link rel='stylesheet' href='./sinebars-animated.css' />
+	<script src="./artemis-sbs-ui.js"></script>
 </head>
 <body>
 <div id="super_container">
+        <div id="console_metacontrols">
+           <a href="javascript:toggleFullScreen();" id="fullscreenToggle">[=]</a>
+        </div>
 	<div id="console_super_controls">
 		<button class="major_action major_action_active">ATMOSPHERIC</button>
 		<button class="major_action">AQUATIC</button>
@@ -226,9 +230,9 @@
 		</div>
 		<div class="rightcolumn">
 			<h3>MICROBIOLOGIC</h3>
-			<button class="action">REFRESH</button>
-			<button class="action">SANITIZE</button>
-			<button class="action">IRRADIATE</button>
+			<button class="action" onclick="audioAcknowledge();">REFRESH</button>
+			<button class="action" onclick="audioAcknowledge();">SANITIZE</button>
+			<button class="action" onclick="audioAcknowledge();">IRRADIATE</button>
 			<ul>
 				<li class="nominal"> Filtration status: ACTIVE</li>
 				<li class="nominal"> Foreign organism: -</li>

@@ -15,12 +15,22 @@
 @import url(https://fonts.googleapis.com/css?family=Ropa+Sans:400,400italic);
 
 
-/* General Defaults */
+/** General Defaults **/
 body {
 	color: #FFFFFF;
 	background-color: #00001C;
 	font-family: 'Ropa Sans', Arial, Helvetica, sans-serif;
 	/*Gadget, sans-serif;*/
+}
+
+html, body, webview { 		/* affects full-screen mode borders */
+	margin: 0;
+	padding: 0;
+	border: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: #00001C;
 }
 
 button {	/*decent, graceful fall-back defaults*/
@@ -126,7 +136,7 @@ table td {  /*maybe not good to be a default, but have a declared simple table t
 
 
 
-/* Semantic Classes */
+/** Semantic Classes **/
 .urgent {
 	color: #F76263;
 }
@@ -177,7 +187,7 @@ li.confirmed {
 }
 
 
-/* Layout Structures */
+/** Layout Structures **/
 .wrapper2column {
 	 overflow: hidden; /* clear the float */
 }
@@ -255,7 +265,7 @@ table.cartograph td {
 }
 
 
-/* Decor */
+/** Decor **/
 .starry_expanse {   /*particularly well suited for tabl-level background of cartograph */
 	background-image:
 		radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
@@ -283,7 +293,7 @@ table.cartograph td {
 
 
 
-/* Conventional layout */
+/** Conventional UI layout **/
 #super_container {
 	margin: .5em;
 }
@@ -305,4 +315,12 @@ table.cartograph td {
 	margin-top: 1em;
 	margin-right:-1em;
 }
-	
+#console_metacontrols {
+	position:fixed;
+	right:0; bottom:0;
+}
+#console_metacontrols a{
+	text-decoration: none;
+	font-weight: bold;
+	color: #555566;
+}

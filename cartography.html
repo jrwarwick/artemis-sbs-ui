@@ -7,75 +7,79 @@
         <meta name="author" content="Justin Warwick" />
         <link rel='stylesheet' href='./artemis-sbs-ui.css' />
         <!-- Here would be a good place to put your own additional css link for unique/special things like spacing adjsutments based on element ID. The fewer changes in artemis-sbs-ui.css,  the better (esp. if you might want to share improvements that really are general purpose)  -->
-<style>
-	#maincontain {
-		width:100%;
-		height:100%;
-		margin: .75em;
-		padding:.75em;
-	}
+	<style>
+		#maincontain {
+			width:100%;
+			height:100%;
+			margin: .75em;
+			padding:.75em;
+		}
 
-	.chart {
-		width: 100%;
-		height:100%;
-		margin:0; padding:0;
-		border-collapse: collapse;
-		border-spacing: 0;
-		empty-cells: show;
-		/*table-layout: fixed;*/
-	}
-	.chart  tr  td {
-		height:20%;
-		width: 20%;
-		border: 2px solid #DDDDFF;
-		margin:0; padding:0;
-		vertical-align:top;
-	}
+		.chart {
+			width: 100%;
+			height:100%;
+			margin:0; padding:0;
+			border-collapse: collapse;
+			border-spacing: 0;
+			empty-cells: show;
+			/*table-layout: fixed;*/
+		}
+		.chart  tr  td {
+			height:20%;
+			width: 20%;
+			border: 2px solid #DDDDFF;
+			margin:0; padding:0;
+			vertical-align:top;
+		}
 
-	.sector {
-		width: 100%;
-		height:100%;
-		border-spacing: 0;
-		empty-cells: show;
-		margin:0; padding:0;
-		border-collapse: collapse;
-		border-spacing: 0;
-		empty-cells: show;
+		.sector {
+			width: 100%;
+			height:100%;
+			border-spacing: 0;
+			empty-cells: show;
+			margin:0; padding:0;
+			border-collapse: collapse;
+			border-spacing: 0;
+			empty-cells: show;
 
-		/*border:none;*/
-	}
-	.sector td.quadrant {
-		width: 50%; height:50%;
-		vertical-align:top;
-		border: 1px dashed #C0C0DA;
-		padding:2px;
-	}
+			/*border:none;*/
+		}
+		.sector td.quadrant {
+			width: 50%; height:50%;
+			vertical-align:top;
+			border: 1px dashed #C0C0DA;
+			padding:2px;
+		}
 
-	/*dynamics*/
-	#chart .sectB {
-		background-color: #505DA0;
-	}
-	#chart .sect4 {
-		background-color: #505DA0;
-	}
+		/*dynamics*/
+		#chart .sectB {
+			background-color: #505DA0;
+		}
+		#chart .sect4 {
+			background-color: #505DA0;
+		}
 
-/*
-	.chart {
-		background-color:black;
-		background-image:
-		radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-		radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-		radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
-		radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
-		background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
-		background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-	}
-*/
-	
-</style>
+	/*
+		.chart {
+			background-color:black;
+			background-image:
+			radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+			radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+			radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+			radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+			background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
+			background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+		}
+	*/
+		
+	</style>
+	<script src="./artemis-sbs-ui.js"></script>
 </head>
 <body>
 <div id="super_container">
+        <div id="console_metacontrols">
+           <a href="javascript:toggleFullScreen();" id="fullscreenToggle">[=]</a>
+        </div>
         <div id="console_super_controls">
                 <button class="major_action major_action_active">VISIBLE</button>
                 <button class="major_action">SECTOR</button>
@@ -257,6 +261,9 @@
 		</tr>
 	</table>
 	</div>
+<button class="action" onclick="generateOrrery('orrery');">Stellar Plane Diagram</button>
+<div id="orrery">
+</div>
 	<div style="font-size:.75em;">
 		floating, wrapping div should display on right if landscape or below if portrait
 	Present Position
