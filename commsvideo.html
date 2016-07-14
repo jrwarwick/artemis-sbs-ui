@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Artemis - Comms Video</title>
+	<meta charset="utf-8" /> 
+	<meta name="description" content="Faux GUI supplement for set-dressing a gaming session of Artemis SBS." />
+        <meta name="author" content="Justin Warwick" />
+	<link rel='stylesheet' href='./artemis-sbs-ui.css' />
+	<!-- Here would be a good place to put your own additional css link for unique/special things like spacing adjsutments based on element ID. The fewer changes in artemis-sbs-ui.css,  the better (esp. if you might want to share improvements that really are general purpose)  -->
+        <script src="./artemis-sbs-ui.js"></script>
+</head>
+<body>
+<div id="super_container">
+        <div id="console_super_controls">
+		<button class="major_action major_action_active">VIDEO</button>
+		<button class="major_action">AUDIO</button>
+		<button class="major_action">TELEGRAPH</button>
+	</div>
+
+
+
+	<div id="signaling_configuration">
+		<p>EMF EMISSIONS ACTIVE</p>
+		<ul>
+			<li class="confirmed">UHF transmit</li>
+			<li>FM SIMPLEX</li>
+			<li>Normal space</li>
+		</ul>
+		<ul>
+ELF SLF ULF VLF LF MF HF VHF UHF SHF EHF THF
+		</ul>
+		<ul>
+AM QAM FM PM AM:SSB
+		</ul>
+		<ul>
+ASK APSK CPM FSK MFSK MSK PPM PSK QAM TCM
+		</ul>
+	</div>
+
+	<div id="dualpresentation2" class="wrapper2column">
+		<div class="leftcolumn">
+			<h3> VIDEO CHANNEL TRANSCEIVER</h3>
+<!--TODO: buttons to dynamically adjust the frequency and crypt key, then make the js call to webrtc service reflect the values-->
+			<table class="ship_metrics">
+				<tr>
+					<td>FREQUENCY</td>
+					<td>446.460 MHz</td>
+				</tr>
+				<tr>
+					<td>CRYPT KEY</td>
+					<td>2B0N2B</td>
+				</tr>
+			</table>
+		</div>
+		<div class="rightcolumn" style="text-align:right; padding-right: 1em;">
+
+			<ul class="button_stack">
+			<!--
+			https://apprtc.appspot.com/r/KEY_2B0N2B__FREQ_440-460
+			https://apprtc.appspot.com/?r=KEY_2B0N2B__FREQ_440-460&hd=false
+			window.location.href='https://apprtc.appspot.com/r/KEY_2B0N2B__FREQ_440-460';
+			-->
+				<li> <button class="action" onclick="vidcommOpen('2B0N2B','440.460');"> OPEN CHANNEL </button> </li>
+				<li> <button class="action" onclick="audioAlert();"> SECURE CHANNEL </button> </li>
+				<li> <button class="action"> TERMINATE CHANNEL </button> </li>
+			</ul>
+		</div>
+	</div>
+	<iframe id="videocommdisplay" ></iframe>
+	
+	
+	<h3> SIDE-BY-SIDES </h3>
+	<div id="dualpresentation1" class="wrapper2column">
+	    <div class="yscale">
+			<table>
+				<tr><td>100</td></tr>
+				<tr><td>75</td></tr>
+				<tr><td>50</td></tr>
+				<tr><td>25</td></tr>
+				<tr><td>0</td></tr>
+				<tr><td>-25</td></tr>
+			</table>
+		</div>
+	    <div class="maingrid">
+			<p>3874</p>
+			<p> <span class="graphbar"> 034  </span> &nbsp; <span class="graphbar"> TODO: bargraphs or something</span> </p>
+			<p>34893  X</p>
+		</div>
+	</div>
+	
+
+	<div id="dualpresentation2" class="wrapper2column">
+		<div class="leftcolumn">
+			<table class="vertical_threshold_bracket">
+				<tr><td class="critical_threshold">_</td></tr>
+				<tr><td class="critical_threshold">_</td></tr>
+				<tr><td>&mdash;</td></tr>
+				<tr><td> </td></tr>
+				<tr><td>-</td></tr>
+				<tr><td>-</td></tr>
+			</table>
+		</div>
+		<div class="rightcolumn">
+			Signal strength r-current
+		</div>
+	</div>
+
+
+	<p></p>
+
+
+<!-- TODO: convert or remove
+	<div id="dualpresentation" class="wrapper2column">
+		<div class="leftcolumn">
+			<table class="vertical_threshold_bracket">
+				<tr><td class="critical_threshold">-</td></tr>
+				<tr><td>-</td></tr>
+				<tr><td>-</td></tr>
+				<tr><td class="nominal_threshold">-</td></tr>
+				<tr><td class="nominal_threshold">&mdash;</td></tr>
+				<tr><td class="nominal_threshold">-</td></tr>
+				<tr><td>-</td></tr>
+				<tr><td>-</td></tr>
+				<tr><td class="critical_threshold">-</td></tr>
+			</table>
+		</div>
+		<div class="rightcolumn">
+			<p>
+				<a href="#INCREMENT_ACTION" class="increment"><img src="images/button_increment.png" /></a>
+				<button class="increment"></button>
+			</p>
+			<p>The goldilocks variation: not too cold not too hot, only right in the middle is green</p>
+			<p>
+				<a href="#DECREMENT_ACTION" class="decrement"><img src="images/button_decrement.png" /></a>
+				<button class="decrement"></button>
+			</p>
+		</div>
+	</div>
+-->
+
+
+</div>
+
+<script>
+window.console && console.log("TODO some dynamicness");
+
+function vidcommOpen(cryptkey,frequency) {
+//'2B0N2B','440.460'
+	
+	//TODO: filter and/or url encode the cryptkey and frequency
+	var vid = document.getElementById('videocommdisplay');
+	vid.width='100%';
+	vid.height=Math.round(document.getElementById("super_container").offsetHeight * .9);
+	vid.src ='https://apprtc.appspot.com/r/KEY_' + cryptkey + '__FREQ_' + frequency.replace('.','-');
+
+	var sigconf = document.getElementById('signaling_configuration');
+	sigconf.style.display="none";
+}
+
+</script>
+</body>
+</html>
