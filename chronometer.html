@@ -102,8 +102,8 @@
 	   <a href="javascript:toggleFullScreen();" id="fullscreenToggle">[=]</a>     
 	</div>
         <div id="console_super_controls">
-		<button class="major_action major_action_active">START</button>
-		<button class="major_action">HALT</button>
+		<button class="major_action major_action_active" onclick="javascript:g_clockActive=true;">START</button>
+		<button class="major_action" onclick="javascript:g_clockActive=false;">HALT</button>
 		<button class="major_action" onclick="javascript:missionMark=0;">RESET</button>
 	</div>
 
@@ -176,8 +176,10 @@ var missionMark = 0; //seconds
 var etc = new Date(Date.now() + missionLength * 1000);
 var dt0 = new Date(Date.now());
 var metricSecondFactor = (10000000000 / 9192631770); //SI cesium oscillation basis, but rounded up to a nice power of 10
+var g_clockActive = true;
 
 var tid = window.setInterval(function(){
+	//These first two are "immune" to halt/resume
 	var dt = new Date(Date.now());
 	var HH = "0" + dt.getHours();
 	var mm = "0" + dt.getMinutes();
@@ -189,27 +191,29 @@ var tid = window.setInterval(function(){
 	var ss = "0" + dt.getUTCSeconds();
 	document.getElementById("UTCTime").innerHTML = HH.substr(HH.length - 2) + ":" + mm.substr(mm.length - 2) + ":" + ss.substr(ss.length - 2);
 
-	remain = (missionLength - missionMark) ;
-	if (remain < 0) {
-		document.getElementById("MissionTimeRemain").style.color = "#DF3030";
-		if (remain % 10 == -1 ) {
-			termAlert();
+	if (g_clockActive) {
+		remain = (missionLength - missionMark) ;
+		if (remain < 0) {
+			document.getElementById("MissionTimeRemain").style.color = "#DF3030";
+			if (remain % 10 == -1 ) {
+				termAlert();
+			}
+			remain = -1 * remain;
 		}
-		remain = -1 * remain;
-	}
-	document.getElementById("MissionTimeRemain").innerHTML = ((missionLength - missionMark) < 0 ? '-' : '') 
-		+ ('0' + Math.floor(remain / 3600)).slice(-2) + ":" 
-		+ ('0' + (Math.floor(remain / 60) % 60)).slice(-2) + ":" 
-		+ ('0' + (remain % 60)).slice(-2);
+		document.getElementById("MissionTimeRemain").innerHTML = ((missionLength - missionMark) < 0 ? '-' : '') 
+			+ ('0' + Math.floor(remain / 3600)).slice(-2) + ":" 
+			+ ('0' + (Math.floor(remain / 60) % 60)).slice(-2) + ":" 
+			+ ('0' + (remain % 60)).slice(-2);
 
-	document.getElementById("MissionTimeMark").innerHTML = ('0' + Math.floor(missionMark / 3600)).slice(-2) + ":" 
-		+ ('0' + (Math.floor(missionMark / 60) % 60)).slice(-2) + ":" 
-		+ ('0' + (missionMark % 60)).slice(-2);
-	missionMark ++;
-	//TODO: if "paused" then add one second to the etc
-	if ( missionMark % 109 == 0 )  { //this is a gross approximation of the factor * 100 metricseconds to get a hectosecond 
-		console.log("one 'metric' minute or 'hectosecond' has passed.");
-		//earlier on, we have a css animation that uses a slightly better approximation for the ring period counter, which is one dekasecond
+		document.getElementById("MissionTimeMark").innerHTML = ('0' + Math.floor(missionMark / 3600)).slice(-2) + ":" 
+			+ ('0' + (Math.floor(missionMark / 60) % 60)).slice(-2) + ":" 
+			+ ('0' + (missionMark % 60)).slice(-2);
+		missionMark ++;
+		//TODO: if "paused" then add one second to the etc
+		if ( missionMark % 109 == 0 )  { //this is a gross approximation of the factor * 100 metricseconds to get a hectosecond 
+			console.log("one 'metric' minute or 'hectosecond' has passed.");
+			//earlier on, we have a css animation that uses a slightly better approximation for the ring period counter, which is one dekasecond
+		}
 	}
 
 }, 1000);
