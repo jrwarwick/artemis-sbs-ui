@@ -26,15 +26,15 @@
 			<li>FM SIMPLEX</li>
 			<li>Normal space</li>
 		</ul>
-		<ul>
+		<span>
 ELF SLF ULF VLF LF MF HF VHF UHF SHF EHF THF
-		</ul>
-		<ul>
+		</span>
+		<span>
 AM QAM FM PM AM:SSB
-		</ul>
-		<ul>
+		</span>
+		<span>
 ASK APSK CPM FSK MFSK MSK PPM PSK QAM TCM
-		</ul>
+		</span>
 	</div>
 
 	<div id="dualpresentation2" class="wrapper2column">
@@ -62,7 +62,7 @@ ASK APSK CPM FSK MFSK MSK PPM PSK QAM TCM
 			-->
 				<li> <button class="action" onclick="vidcommOpen('2B0N2B','440.460');"> OPEN CHANNEL </button> </li>
 				<li> <button class="action" onclick="audioAlert();"> SECURE CHANNEL </button> </li>
-				<li> <button class="action"> TERMINATE CHANNEL </button> </li>
+				<li> <button class="action" onclick="vidcommClose();"> TERMINATE CHANNEL </button> </li>
 			</ul>
 		</div>
 	</div>
@@ -89,7 +89,7 @@ ASK APSK CPM FSK MFSK MSK PPM PSK QAM TCM
 	</div>
 	
 
-	<div id="dualpresentation2" class="wrapper2column">
+	<div id="dualpresentation3" class="wrapper2column">
 		<div class="leftcolumn">
 			<table class="vertical_threshold_bracket">
 				<tr><td class="critical_threshold">_</td></tr>
@@ -143,6 +143,18 @@ ASK APSK CPM FSK MFSK MSK PPM PSK QAM TCM
 
 <script>
 window.console && console.log("TODO some dynamicness");
+
+function vidcommClose() {
+	//TODO: neatly withdraw from channel to not occupy connections needlessly
+	var vid = document.getElementById('videocommdisplay');
+	vid.width='300px';
+	vid.height='150px';
+	vid.innerHTML = "<html><head></head><body><p>-== TRANSMISSION TERMINATED ==-</p></body></html>";
+
+	var sigconf = document.getElementById('signaling_configuration');
+	sigconf.style.display="block";
+}
+
 
 function vidcommOpen(cryptkey,frequency) {
 //'2B0N2B','440.460'
