@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Artemis - Crew &amp; Cargo Manifest</title>
+	<meta charset="utf-8" /> 
+	<meta name="description" content="Faux GUI supplement for set-dressing a gaming session of Artemis SBS." />
+        <meta name="author" content="Justin Warwick" />
+	<link rel='stylesheet' href='./artemis-sbs-ui.css' />
+	<!-- Here would be a good place to put your own additional css link for unique/special things like spacing adjsutments based on element ID. The fewer changes in artemis-sbs-ui.css,  the better (esp. if you might want to share improvements that really are general purpose)  -->
+        <script src="./artemis-sbs-ui.js"></script>
+<style>
+#CB1 {
+/* TODO: comprehend and solidify this voodoo, then move it to css file. 
+http://codepen.io/CrocoDillon/pen/fBJxu
+http://stackoverflow.com/questions/16056591/font-scaling-based-on-width-of-container
+-->*/
+/*	font-size: calc(.75em + .75vw);  
+*/
+	font-size: calc(.5em + .75vw); /* TODO: comprehend and solidify this voodoo, then move it to css file. -->*/
+}
+#CB1 table td {
+	vertical-align: top;
+	/*white-space: nowrap;*/
+	white-space: pre-wrap;
+	padding-right: 1.5em;
+}
+</style>
+</head>
+<body>
+<div id="super_container">
+        <div id="console_super_controls">
+		<button class="major_action">CREW</button>
+		<button class="major_action major_action_active">CARGO</button>
+	</div>
+
+	<div id="CB1"  >
+	<h3> CARGO BAY 1</h3>
+	<table>	<!--As plain as possible-->
+		<tr>
+			<td>NAME</td>
+			<td>QUANT</td>
+			<td>MASS</td>
+			<td>ORGN</td>
+			<td>DEST</td>
+			<td>DESC</td>
+			<td>IMP DATE</td>
+			<td>EXP DATE</td>
+			<td> </td>
+		</tr>
+		<tr>
+			<td>H<sub>2</sub> 1L cont.</td>
+			<td>200</td>
+			<td>200kg</td>
+			<td>DS9, Sect A3</td>
+			<td>Taladar Orbital Station, Sect B4</td>
+			<td>Water with nominal mineral content. 
+Life susstaining grade.
+			</td>
+			<td>2016.07.26.07.04</td>
+			<td>- </td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>ABS Pellets, 1M<sup>3</sup></td>
+			<td>2</td>
+			<td>877kg</td>
+			<td>DS9, Sect A3</td>
+			<td>Taladar Orbital Station, Sect B4</td>
+			<td>ABS plastic pellets, 
+ready for manufacturing
+			</td>
+			<td>2016.07.26.07.04</td>
+			<td>- </td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Plasmatic Power Converters</td>
+			<td>6</td>
+			<td>150kg</td>
+			<td>DS3, Sect C7</td>
+			<td>DS12, Sect G2</td>
+			<td>KryoPhase Systems class 3 device.
+space hardened, ready for install
+			</td>
+			<td>2016.07.23.07.05</td>
+			<td>- </td>
+			<td></td>
+		</tr>
+	</table>
+
+
+	<table class="ship_metrics">
+		<tr>
+			<td>VOL CAP</td> <td>22%</td>
+		</tr>
+		<tr>
+			<td>MASS CAP</td> <td>4%</td>
+		</tr>
+		<tr>
+			<td>HAZ STAT</td> <td>FALSE</td>
+		</tr>
+		<tr>
+			<td>SEC STAT</td> <td>FALSE</td>
+		</tr>
+		<tr>
+			<td>CUSTOMS</td> <td>CLEAR</td>
+		</tr>
+		<tr>
+			<td>-</td> <td>-</td>
+		</tr>
+	</table>
+	</div>
+
+	
+	
+	<h3> SIDE-BY-SIDES </h3>
+	<div id="dualpresentation1" class="wrapper2column">
+	    <div class="yscale">
+			<table>
+				<tr><td>100</td></tr>
+				<tr><td>75</td></tr>
+				<tr><td>50</td></tr>
+				<tr><td>25</td></tr>
+				<tr><td>0</td></tr>
+				<tr><td>-25</td></tr>
+			</table>
+		</div>
+	    <div class="maingrid">
+			<p>3874</p>
+			<p> <span class="graphbar"> 034  </span> &nbsp; <span class="graphbar"> TODO: bargraphs or something</span> </p>
+			<p>34893  X</p>
+		</div>
+	</div>
+	
+
+	<div id="dualpresentation2" class="wrapper2column">
+		<div class="leftcolumn">
+			<table class="vertical_threshold_bracket">
+				<tr><td class="critical_threshold">_</td></tr>
+				<tr><td class="critical_threshold">_</td></tr>
+				<tr><td>&mdash;</td></tr>
+				<tr><td> </td></tr>
+				<tr><td>-</td></tr>
+				<tr><td>-</td></tr>
+			</table>
+		</div>
+		<div class="rightcolumn">
+			sine wave or number grid or something?
+		</div>
+	</div>
+
+
+	<p></p>
+
+
+	<div id="dualpresentation" class="wrapper2column">
+		<div class="leftcolumn">
+			<table class="vertical_threshold_bracket">
+				<tr><td class="critical_threshold">-</td></tr>
+				<tr><td>-</td></tr>
+				<tr><td>-</td></tr>
+				<tr><td class="nominal_threshold">-</td></tr>
+				<tr><td class="nominal_threshold">&mdash;</td></tr>
+				<tr><td class="nominal_threshold">-</td></tr>
+				<tr><td>-</td></tr>
+				<tr><td>-</td></tr>
+				<tr><td class="critical_threshold">-</td></tr>
+			</table>
+		</div>
+		<div class="rightcolumn">
+			<p>
+				<a href="#INCREMENT_ACTION" class="increment"><img src="images/button_increment.png" /></a>
+				<button class="increment"></button>
+			</p>
+			<p>The goldilocks variation: not too cold not too hot, only right in the middle is green</p>
+			<p>
+				<a href="#DECREMENT_ACTION" class="decrement"><img src="images/button_decrement.png" /></a>
+				<button class="decrement"></button>
+			</p>
+		</div>
+	</div>
+
+
+</div>
+
+<script>
+window.console && console.log("TODO some dynamicness");
+
+
+</script>
+</body>
+</html>

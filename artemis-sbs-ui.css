@@ -345,6 +345,11 @@ ul.button_stack {
 ul.button_stack li button {
 	min-width: 12em;
 }
+ul.button_stack.narrow li button {
+    min-width: 6em;
+    text-align: left;
+    padding-left: 1.5em;
+}
 
 
 table.vertical_threshold_bracket {

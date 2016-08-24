@@ -19,24 +19,6 @@
 
 
 
-	<div id="signaling_configuration">
-		<p>EMF EMISSIONS ACTIVE</p>
-		<ul>
-			<li class="confirmed">UHF transmit</li>
-			<li>FM SIMPLEX</li>
-			<li>Normal space</li>
-		</ul>
-		<span>
-ELF SLF ULF VLF LF MF HF VHF UHF SHF EHF THF
-		</span>
-		<span>
-AM QAM FM PM AM:SSB
-		</span>
-		<span>
-ASK APSK CPM FSK MFSK MSK PPM PSK QAM TCM
-		</span>
-	</div>
-
 	<div id="dualpresentation2" class="wrapper2column">
 		<div class="leftcolumn">
 			<h3> VIDEO CHANNEL TRANSCEIVER</h3>
@@ -44,11 +26,25 @@ ASK APSK CPM FSK MFSK MSK PPM PSK QAM TCM
 			<table class="ship_metrics">
 				<tr>
 					<td>FREQUENCY</td>
-					<td>446.460 MHz</td>
+					<td id="transceiver_freq">446.460 MHz</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<button id="freq_inc" class="increment" onclick="frequencyModify(.010);"></button>
+						<button id="freq_dec" class="decrement" onclick="frequencyModify(-.010);"></button>
+					</td>
 				</tr>
 				<tr>
 					<td>CRYPT KEY</td>
-					<td>2B0N2B</td>
+					<td id="crypto_key">2B0N2B</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<button class="increment"></button>
+						<button class="decrement"></button>
+					</td>
 				</tr>
 			</table>
 		</div>
@@ -60,16 +56,62 @@ ASK APSK CPM FSK MFSK MSK PPM PSK QAM TCM
 			https://apprtc.appspot.com/?r=KEY_2B0N2B__FREQ_440-460&hd=false
 			window.location.href='https://apprtc.appspot.com/r/KEY_2B0N2B__FREQ_440-460';
 			-->
-				<li> <button class="action" onclick="vidcommOpen('2B0N2B','440.460');"> OPEN CHANNEL </button> </li>
+				<li> <button class="action" onclick="vidcommOpen();"> OPEN CHANNEL </button> </li>
 				<li> <button class="action" onclick="audioAlert();"> SECURE CHANNEL </button> </li>
 				<li> <button class="action" onclick="vidcommClose();"> TERMINATE CHANNEL </button> </li>
 			</ul>
+			<div id="signaling_configuration">
+				<h3>MODULATION</h3>
+				<ul class="button_stack narrow">
+					<li> <button class="action" onclick=""> AM </button> </li>
+					<li> <button class="action" onclick=""> AM:SSB</button> </li>
+					<li> <button class="action" onclick=""> FM</button> </li>
+					<li> <button class="action" onclick=""> PM</button> </li>
+					<li> <button class="action" onclick=""> QAM</button> </li>
+				</ul>
+				<ul class="button_stack narrow">
+					<li> <button class="action" onclick=""> AM </button> </li>
+					<li> <button class="action" onclick=""> ASK </button> </li>
+					<li> <button class="action" onclick=""> APSK </button> </li>
+					<li> <button class="action" onclick=""> CPM </button> </li>
+					<li> <button class="action" onclick=""> FSK </button> </li>
+					<li> <button class="action" onclick=""> MFSK </button> </li>
+					<li> <button class="action" onclick=""> MSK </button> </li>
+					<li> <button class="action" onclick=""> PPM </button> </li>
+					<li> <button class="action" onclick=""> PSK </button> </li>
+					<li> <button class="action" onclick=""> QAM </button> </li>
+					<li> <button class="action" onclick=""> TCM </button> </li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<iframe id="videocommdisplay" ></iframe>
 	
 	
-	<h3> SIDE-BY-SIDES </h3>
+
+	<div id="signaling_configuration_alt">
+		<p>EMF EMISSIONS ACTIVE</p>
+		<ul>
+			<li class="confirmed">UHF transmit</li>
+			<li>FM SIMPLEX</li>
+			<li>Normal space</li>
+		</ul>
+		<span>
+ELF SLF ULF VLF LF MF HF VHF UHF SHF EHF THF
+		</span>
+<!--
+		<span>
+AM QAM FM PM AM:SSB
+		</span>
+		<span>
+ASK APSK CPM FSK MFSK MSK PPM PSK QAM TCM
+		</span>
+-->
+	</div>
+
+
+
+	<h3> SCAN ANALYSIS</h3>
 	<div id="dualpresentation1" class="wrapper2column">
 	    <div class="yscale">
 			<table>
@@ -83,14 +125,14 @@ ASK APSK CPM FSK MFSK MSK PPM PSK QAM TCM
 		</div>
 	    <div class="maingrid">
 			<p>3874</p>
-			<p> <span class="graphbar"> 034  </span> &nbsp; <span class="graphbar"> TODO: bargraphs or something</span> </p>
+			<p> <span class="graphbar"> 034  </span> &nbsp; <span class="graphbar"> STATIC EM SATURATION</span> </p>
 			<p>34893  X</p>
 		</div>
 	</div>
 	
 
 	<div id="dualpresentation3" class="wrapper2column">
-		<div class="leftcolumn">
+		<div class="leftcolumn" style="margin-right: 1em;">
 			<table class="vertical_threshold_bracket">
 				<tr><td class="critical_threshold">_</td></tr>
 				<tr><td class="critical_threshold">_</td></tr>
@@ -100,8 +142,9 @@ ASK APSK CPM FSK MFSK MSK PPM PSK QAM TCM
 				<tr><td>-</td></tr>
 			</table>
 		</div>
-		<div class="rightcolumn">
 			Signal strength r-current
+		<div class="rightcolumn">
+			<canvas id="signalstrength_linegraph"></canvas>
 		</div>
 	</div>
 
@@ -144,6 +187,27 @@ ASK APSK CPM FSK MFSK MSK PPM PSK QAM TCM
 <script>
 window.console && console.log("TODO some dynamicness");
 
+function generateLineGraph(elementID){
+//Thanks to http://jsfiddle.net/drewnoakes/692cbo8q/
+//TODO: generate the random ypoints in a global array, and global index then start a setinterval to perform a circular "scroll" of the graph.
+// 	then once tested, copy to the demo/template
+//
+	var canvas = document.querySelector('#'+elementID),
+	ctx = canvas.getContext('2d');
+
+	ctx.lineWidth = 1.5;
+	ctx.strokeStyle = 'gray';
+
+	ctx.beginPath();
+	for (var i = 0; i < 100; i++)
+	{
+	    var x = 4*i; //Math.random() * 100,
+		y = Math.random() * 100;
+	    ctx.lineTo(x, y);
+	}
+	ctx.stroke();
+}
+
 function vidcommClose() {
 	//TODO: neatly withdraw from channel to not occupy connections needlessly
 	var vid = document.getElementById('videocommdisplay');
@@ -159,6 +223,13 @@ function vidcommClose() {
 function vidcommOpen(cryptkey,frequency) {
 //'2B0N2B','440.460'
 	
+	if (frequency == undefined) {
+		frequency = document.getElementById('transceiver_freq').innerText.replace(" MHz","");
+	}
+	if (cryptkey == undefined) {
+		cryptkey  = document.getElementById('crypto_key').innerText;
+	}
+
 	//TODO: filter and/or url encode the cryptkey and frequency
 	var vid = document.getElementById('videocommdisplay');
 	vid.width='100%';
@@ -169,6 +240,13 @@ function vidcommOpen(cryptkey,frequency) {
 	sigconf.style.display="none";
 }
 
+
+function frequencyModify(crement) { //crement is signed adjustment in MHz
+	var freqElm = document.getElementById('transceiver_freq');
+	freqElm.innerText = (parseFloat(freqElm.innerText.replace(" MHz","")) +  crement).toFixed(3) + " MHz";
+}
+
+generateLineGraph("signalstrength_linegraph");
 </script>
 </body>
 </html>

@@ -13,9 +13,10 @@ Presently pages are client-side only in any dynamicness.
 
 Live demo:  http://jrwarwick.github.io/artemis-sbs-ui/
 
-Pages
-=====
-Most are planned or in progress
+
+Project Plan
+============
+Pages planned or in progress
  * cartography
 	* randomized orrerry
 	* waypoint/jump path tracer/generator
@@ -29,7 +30,8 @@ Most are planned or in progress
 	* ~~biological contamination/sterilization~~
 	* accoustic
  * ~~mission time clock~~  (this could be useful for paying customers to see remaining session time)
-	* what else might go here? (what else would a paying customer want to see?)
+	* what else might go here? (what else would a paying customer want to see?) possibly a qr code or current IP address, whatever is necessary to get client connected.
+	* Planck Time, Planck Epoch, super-UTC , stacked or concentric in "metric" clock 
 	* display for the passing hectoseconds and kiloseconds
  * distribution networks
    	* plasma
@@ -38,7 +40,7 @@ Most are planned or in progress
   	* coolant
 	* replicator component matter stream (carbon, hydrogen, oxygen, silicon, iron, sodium, nitrogen, aluminum)
  * comms
-	* video ideally webrtc based, which might lead to need for broker server and/or library of prerecorded messages.
+	* video:  ideally webrtc based, which might lead to need for broker server and/or library of prerecorded messages.
 	* PTT. Maybe some kind of mumble integration
  * sig int  
 	* EMF/radio signal scanning & id
@@ -51,6 +53,27 @@ Most are planned or in progress
 	* minigame to contain raiders/infiltraters. Failure to contain results in GM ending mission (with actors that burst into the bridge costumed and artmed with "stun guns").
  * science 
 	* short range sensor that can reveal pre-seeded (by GM) info that is fun/interesting, or maybe even game signficant.
+
+Optional server-side statefulness via DB
+ * angular/meteor
+ * mongodb or couchdb
+
+GM's console
+ * general super easy report/editor
+ * threshold/event alerts
+ * presets/datasets that can be saved and loaded. E.g., a sectormap meant to be "bundeled" with a particular scripted mission. Once loaded, secondary science scan facts could be discovered.
+
+Optional Real actual gamestate integration
+ * independent Data Client RESTful "translator" 
+ * optional consumption of the services
+ * gamestate input/change capability
+
+
+Contributing
+============
+I am new to git and github. I found it challenging to begin and I still struggle a bit with it. But it won't bite, and neither will I. Pull requests are welcome, though I do have something of a vision for where I want this to go and how it should be done. Please see GitHub's excellent introductory and tutorial materials and then come back here and fork-download-hack-requestpull etc.
+
+Some of the technical decisions that don't seem very "modern" or "conventional" are either due to my ignorance as a "life-long student" of coding or sometimes short-term laziness (like moving things to functions later on, or consistency in style or comments cleanup) but sometimes there are deliberate choices. One notable example: I am a long-time fan of jquery, and I use it at work. Nonetheless, I wanted to gain some intimate familiarity with modern browser's DOM and ECMAscript and it takes to build something like jquery. Therefore, I am "doing it by hand" on purpose. Please do not send in a pull request that adds in jquery. Some food for thought, by the by: http://youmightnotneedjquery.com/
 
 
 License
@@ -80,6 +103,7 @@ for information and references:
 
 for inspiration:
 * https://github.com/IvanSanchez/artemis-glitter
+* http://youmightnotneedjquery.com/
 
 and of course:
 *  http://artemis.eochu.com/

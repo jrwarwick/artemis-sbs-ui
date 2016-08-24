@@ -8,7 +8,27 @@
         <link rel='stylesheet' href='./artemis-sbs-ui.css' />
         <!-- Here would be a good place to put your own additional css link for unique/special things like spacing adjsutments based on element ID. The fewer changes in artemis-sbs-ui.css,  the better (esp. if you might want to share improvements that really are general purpose)  -->
 	<style>
-		#maincontain {
+		#orrery {
+			position: relative;
+			margin: 6em;
+		 width: 100%;
+		  height: 100%;
+		}
+
+@keyframes spin-left {
+  100% {
+    -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    -o-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+
+
+
+		/** Cartesian Stellar Cartograph **/
+		#chart_maincontainer {
 			width:100%;
 			height:100%;
 			margin: .75em;
@@ -81,9 +101,9 @@
            <a href="javascript:toggleFullScreen();" id="fullscreenToggle">[=]</a>
         </div>
         <div id="console_super_controls">
-                <button class="major_action major_action_active">VISIBLE</button>
-                <button class="major_action">SECTOR</button>
-                <button class="major_action">GALAXY</button>
+                <button class="major_action major_action_active" onclick="chartZoom('150%');">VISIBLE</button>
+                <button class="major_action" onclick="chartZoom('100%');">SECTOR</button>
+                <button class="major_action" onclick="chartZoom('70%');">GALAXY</button>
         </div>
 
 
@@ -97,173 +117,182 @@
         </div>
 
 
-	<div id="maincontain">
-	<table class="chart starry_expanse">
-		<tr class="sectA">
-			<td class="sect1">
-				<table class="sector">
-					<tr><td class="quadrant">A1</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect2">
-				<table class="sector">
-					<tr><td class="quadrant">A2</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect3">
-				<table class="sector">
-					<tr><td class="quadrant">A3</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect4">
-				<table class="sector">
-					<tr><td class="quadrant">A4</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect5">
-				<table class="sector">
-					<tr><td class="quadrant">A5</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-		</tr>
-		<tr class="sectB">
-			<td class="sect1">
-				<table class="sector">
-					<tr><td class="quadrant">B1</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect2">
-				<table class="sector">
-					<tr><td class="quadrant">B2</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect3">
-				<table class="sector">
-					<tr><td class="quadrant">B3</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect4">
-				<table class="sector">
-					<tr><td class="quadrant">B4</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect5">
-				<table class="sector">
-					<tr><td class="quadrant">B5</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-		</tr>
-		<tr class="sectC">
-			<td class="sect1">
-				<table class="sector">
-					<tr><td class="quadrant">C1</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect2">
-				<table class="sector">
-					<tr><td class="quadrant">C2</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect3">
-				<table class="sector">
-					<tr><td class="quadrant">C3</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect4">
-				<table class="sector">
-					<tr><td class="quadrant">C4</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect5">
-				<table class="sector">
-					<tr><td class="quadrant">C5</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-		</tr>
-		<tr class="sectD">
-			<td class="sect1">
-				<table class="sector">
-					<tr><td class="quadrant">D1</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect2">
-				<table class="sector">
-					<tr><td class="quadrant">D2</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect3">
-				<table class="sector">
-					<tr><td class="quadrant">D3</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect4">
-				<table class="sector">
-					<tr><td class="quadrant">D4</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect5">
-				<table class="sector">
-					<tr><td class="quadrant">D5</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-		</tr>
-		<tr class="sectE">
-			<td class="sect1">
-				<table class="sector">
-					<tr><td class="quadrant">E1</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect2">
-				<table class="sector">
-					<tr><td class="quadrant">E2</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect3">
-				<table class="sector">
-					<tr><td class="quadrant">E3</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect4">
-				<table class="sector">
-					<tr><td class="quadrant">E4</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-			<td class="sect5">
-				<table class="sector">
-					<tr><td class="quadrant">E5</td><td class="quadrant"></td></tr>
-					<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
-				</table>
-			</td>
-		</tr>
-	</table>
+	<div id="dualpresentation" class="wrapper2column">
+		<div class="leftcolumn">
+
+			<div id="chart_maincontainer">
+			<table id="chart_prime" class="chart starry_expanse">
+				<tr class="sectA">
+					<td class="sect1">
+						<table class="sector">
+							<tr><td class="quadrant">A1</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect2">
+						<table class="sector">
+							<tr><td class="quadrant">A2</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect3">
+						<table class="sector">
+							<tr><td class="quadrant">A3</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect4">
+						<table class="sector">
+							<tr><td class="quadrant">A4</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect5">
+						<table class="sector">
+							<tr><td class="quadrant">A5</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+				</tr>
+				<tr class="sectB">
+					<td class="sect1">
+						<table class="sector">
+							<tr><td class="quadrant">B1</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect2">
+						<table class="sector">
+							<tr><td class="quadrant">B2</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect3">
+						<table class="sector">
+							<tr><td class="quadrant">B3</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect4">
+						<table class="sector">
+							<tr><td class="quadrant">B4</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect5">
+						<table class="sector">
+							<tr><td class="quadrant">B5</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+				</tr>
+				<tr class="sectC">
+					<td class="sect1">
+						<table class="sector">
+							<tr><td class="quadrant">C1</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect2">
+						<table class="sector">
+							<tr><td class="quadrant">C2</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect3">
+						<table class="sector">
+							<tr><td class="quadrant">C3</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect4">
+						<table class="sector">
+							<tr><td class="quadrant">C4</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect5">
+						<table class="sector">
+							<tr><td class="quadrant">C5</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+				</tr>
+				<tr class="sectD">
+					<td class="sect1">
+						<table class="sector">
+							<tr><td class="quadrant">D1</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect2">
+						<table class="sector">
+							<tr><td class="quadrant">D2</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect3">
+						<table class="sector">
+							<tr><td class="quadrant">D3</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect4">
+						<table class="sector">
+							<tr><td class="quadrant">D4</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect5">
+						<table class="sector">
+							<tr><td class="quadrant">D5</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+				</tr>
+				<tr class="sectE">
+					<td class="sect1">
+						<table class="sector">
+							<tr><td class="quadrant">E1</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect2">
+						<table class="sector">
+							<tr><td class="quadrant">E2</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect3">
+						<table class="sector">
+							<tr><td class="quadrant">E3</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect4">
+						<table class="sector">
+							<tr><td class="quadrant">E4</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+					<td class="sect5">
+						<table class="sector">
+							<tr><td class="quadrant">E5</td><td class="quadrant"></td></tr>
+							<tr><td class="quadrant"></td><td class="quadrant"></td></tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			</div>
+
+		</div>
+		<div class="rightcolumn">
+			<div id="orrery">
+			</div>
+			<button class="action" onclick="generateOrrery('orrery');">Stellar Plane Diagram</button>
+		</div>
 	</div>
-<button class="action" onclick="generateOrrery('orrery');">Stellar Plane Diagram</button>
-<div id="orrery">
-</div>
+
 	<div style="font-size:.75em;">
 		floating, wrapping div should display on right if landscape or below if portrait
 	Present Position
@@ -284,7 +313,7 @@
 	Prohibited Sectors
 	Occupied Sectors
 
-</div>
+	</div>
 
 
 </div>
@@ -297,26 +326,32 @@
 
 	//window.console && console.log( document.body.style );
 	window.console && console.log(  "padding: " + 
-	window.getComputedStyle(document.getElementById("maincontain")).getPropertyValue("margin")
+	window.getComputedStyle(document.getElementById("chart_maincontainer")).getPropertyValue("margin")
 			);
 
 	window.console && console.log(
-	window.getComputedStyle(document.getElementById("maincontain"),null).getPropertyValue("margin-top")
+	window.getComputedStyle(document.getElementById("chart_maincontainer"),null).getPropertyValue("margin-top")
 		   );	
 
 	function displayAdjust() {
 
 		var squaring = window.innerHeight / window.innerWidth ;
-		var margins = window.getComputedStyle(document.getElementById("maincontain"),null).getPropertyValue("margin-top");
+		var margins = window.getComputedStyle(document.getElementById("chart_maincontainer"),null).getPropertyValue("margin-top");
 		margins = margins.replace(/[pP][xX]/,"");
 		margins = parseInt(margins) + parseInt(window.getComputedStyle(document.getElementById("console_super_controls"),null).getPropertyValue("height").replace(/[pP][xX]/,""));
 		//window.console && console.log("margins: " + margins);
-		document.getElementById("maincontain").style.width =  (window.innerWidth - 2 * margins) * squaring + "px";
-		document.getElementById("maincontain").style.height=  window.innerHeight - 2 * margins + "px";;
+		document.getElementById("chart_maincontainer").style.width =  (window.innerWidth - 2 * margins) * squaring + "px";
+		document.getElementById("chart_maincontainer").style.height=  window.innerHeight - 2 * margins + "px";;
 	}
 
 	displayAdjust();
 	window.onresize = displayAdjust;
+
+
+	function chartZoom(zoomlevel) {
+		var cart = document.getElementById("chart_prime");
+		cart.style.zoom = zoomlevel;
+	}
 </script>
 </body>
 </html>

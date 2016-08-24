@@ -46,7 +46,7 @@ function generateOrrery(containerID){
 //Thanks Mr. Young!  http://codepen.io/BraedenYoung/pen/YqNjeK?editors=1100
 	var container = document.getElementById(containerID);
 
-	container.innerHTML = "sun";
+	//container.innerHTML = "sun";
 	{//need a for loop against a random # of planets
 		var planetID = "planetOne";
 		container.innerHTML += " <div id='" + planetID + "-orbit'>\n"
@@ -60,6 +60,28 @@ function generateOrrery(containerID){
 		pEl.style.left ="51%";
 		pEl.style.marginLeft="-21px";
 		pEl.style.marginTop="-12px";
+		var poEl = document.getElementById(planetID+"-orbit");
+		poEl.style.position = "absolute";
+		poEl.style.top = "50%";
+		poEl.style.left = "50%";
+		poEl.style.width="154.8px"
+		poEl.style.height="154.8px";
+		poEl.style.marginTop = "-75px";
+		poEl.style.borderWidth ="2px";
+		poEl.style.borderStyle="dotted";
+		poEl.style.borderColor ="white";
+		poEl.style.borderRadius="50%";
+		poEl.style.MozAnimationName="spin-left";
+		poEl.style.MozAnimationDelay="2.41s";
+		poEl.style.MozAnimationTimingFunction="linear";
+		poEl.style.MozAnimationDuration="infinite";
+		poEl.style.webkitAnimation="spin-left 2.41s linear infinite";
+		poEl.style.msAnimation="spin-left 2.41s linear infinite";
+		poEl.style.oAnimation="spin-left 2.41s linear infinite";
+		poEl.style.animation="spinpoEl.style.left 2.41s linear infinite";
+
+
+
 	}
 /* perplanet...
 
