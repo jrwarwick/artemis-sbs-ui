@@ -61,7 +61,7 @@ Optional server-side statefulness via DB
 GM's console
  * general super easy report/editor
  * threshold/event alerts
- * presets/datasets that can be saved and loaded. E.g., a sectormap meant to be "bundeled" with a particular scripted mission. Once loaded, secondary science scan facts could be discovered.
+ * presets/datasets that can be saved and loaded. E.g., a sectormap meant to be "bundled" with a particular scripted mission. Once loaded, secondary science scan facts could be discovered.
 
 Optional Real actual gamestate integration
  * independent Data Client RESTful "translator" 
@@ -73,7 +73,7 @@ Contributing
 ============
 I am new to git and github. I found it challenging to begin and I still struggle a bit with it. But it won't bite, and neither will I. Pull requests are welcome, though I do have something of a vision for where I want this to go and how it should be done. Please see GitHub's excellent introductory and tutorial materials and then come back here and fork-download-hack-requestpull etc.
 
-Some of the technical decisions that don't seem very "modern" or "conventional" are either due to my ignorance as a "life-long student" of coding or sometimes short-term laziness (like moving things to functions later on, or consistency in style or comments cleanup) but sometimes there are deliberate choices. One notable example: I am a long-time fan of jquery, and I use it at work. Nonetheless, I wanted to gain some intimate familiarity with modern browser's DOM and ECMAscript and it takes to build something like jquery. Therefore, I am "doing it by hand" on purpose. Please do not send in a pull request that adds in jquery. Some food for thought, by the by: http://youmightnotneedjquery.com/
+Some of the technical decisions that don't seem very "modern" or "conventional" (or in other cases are unnecessarily "modern" or "hip") are either due to my ignorance as a "life-long student" of coding or sometimes short-term laziness (like moving things to functions later on, or consistency in style or comments cleanup) but sometimes there are deliberate choices. One notable example: I am a long-time fan of jquery, and I use it at work. Nonetheless, I wanted to gain some intimate familiarity with modern browser's DOM and ECMAscript and it takes to build something like jquery. Therefore, I am "doing it by hand" on purpose. Please do not send in a pull request that adds in jquery. Some food for thought, by the by: http://youmightnotneedjquery.com/ 
 
 
 License
