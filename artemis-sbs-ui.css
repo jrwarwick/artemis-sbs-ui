@@ -94,7 +94,7 @@ button.action {
 	background-size: contain;
 	background-repeat: no-repeat,  no-repeat, repeat-x;
 	background-position: left, right,  center;
-
+	outline: none;
 	/*min-width: 8em;*/
 }
 
