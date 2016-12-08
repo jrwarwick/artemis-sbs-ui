@@ -17,3 +17,7 @@ document.querySelectorAll('button.major_action').forEach(function(elm,idx,arr){
 	elm.addEventListener("click", function(){ makeExclusiveActiveButton(this); }); 
 } );
 
+
+if (sessionStorage["greeting"] == "acknowledged") {
+	document.querySelector("#communique").style.display = 'none';
+}

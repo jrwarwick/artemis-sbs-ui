@@ -26,7 +26,7 @@
 		<p>Status and information flowing endlessly, giving a certain ambiance.</p>
 		<p>Even if information is not functionally meaningful, the experience is enhance by giving a feeling of authenticity.</p>
 		<p>Presumably, you want to fill the screen pretty evenly, if browser were in fullscreen mode. But also becareful not to overflow or else you get scrollbars that spoil the effect a little. Hopefully this page is clean and clear enough that you could copy it, rename it, then start copy and pasting segments that you like and just replace the content and order a little and then you have yourself a custom faux console.</p>
-		<button class="action" onclick="javascript:this.parentNode.style.display = 'none';">ACKNOWLEDGE</button>
+		<button class="action" onclick="javascript:sessionStorage['greeting'] = 'acknowledged'; this.parentNode.style.display = 'none';">ACKNOWLEDGE</button>
 		<!--Probably it is better to put onclick and other evenhandler code in a seperate script block, even in a separate JS file. But this works ok too.-->
 	</div>
 
