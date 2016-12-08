@@ -130,10 +130,18 @@
 					
 			<h3>Time Remaining</h3>
 			<span id="MissionTimeRemain" class="jumbo timedisplay">HH:MI:SS</span>
-			<button class="increment" onclick="missionLength+=60;"> </button>
-			<button class="decrement" onclick="missionLength-=60;"> </button>
+			<div class="timeCycWrapper">
+				<button class="increment" onclick="missionLength+=60;"> </button>
+				<button class="decrement" onclick="missionLength-=60;"> </button>
+			</div>
 			<h3>UTC</h3>
 			<span id="UTCTime" class="jumbo timedisplay">HH:MI:SS</span>
+			<div class="timeCycWrapper">
+			  <div class="pie spinner"></div>
+			  <div class="pie filler"></div>
+			  <div class="mask"></div>
+			</div>
+					
 			<h3>Local Time</h3>
 			<span id="LocalTime" class="jumbo timedisplay">HH:MI:SS</span>
 			<div class="timeCycWrapper">

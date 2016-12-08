@@ -50,12 +50,14 @@ function generateOrrery(containerID){
 	{//need a for loop against a random # of planets
 		var planetID = "planetOne";
 		container.innerHTML += " <div id='" + planetID + "-orbit'>\n"
-			+" <img id='"+planetID+"' src=\"http://goo.gl/41IWnf\"> \n"
+			+" <img id='"+planetID+"' src=\"3d-wireframe-sphere.svg\"> \n"
 			+"</div> ";
 		var pEl = document.getElementById(planetID);
 		pEl.style.position = "absolute";
-		pEl.style.height = "7.64px";
-		pEl.style.width= "7.64px";
+		pEl.style.height = "10px";
+		pEl.style.width= "10px";
+		//pEl.style.height = "7.64px";
+		//pEl.style.width= "7.64px";
 		pEl.style.top ="6%";
 		pEl.style.left ="51%";
 		pEl.style.marginLeft="-21px";
@@ -72,14 +74,14 @@ function generateOrrery(containerID){
 		poEl.style.borderColor ="white";
 		poEl.style.borderRadius="50%";
 		poEl.style.MozAnimationName="spin-left";
-		poEl.style.MozAnimationDelay="2.41s";
+		poEl.style.MozAnimationDelay="8.41s";
 		poEl.style.MozAnimationTimingFunction="linear";
 		poEl.style.MozAnimationDuration="infinite";
-		poEl.style.webkitAnimation="spin-left 2.41s linear infinite";
-		poEl.style.msAnimation="spin-left 2.41s linear infinite";
-		poEl.style.oAnimation="spin-left 2.41s linear infinite";
-		poEl.style.animation="spinpoEl.style.left 2.41s linear infinite";
-
+		poEl.style.webkitAnimation="spin-left 8.41s linear infinite";
+		poEl.style.msAnimation="spin-left 8.41s linear infinite";
+		poEl.style.oAnimation="spin-left 8.41s linear infinite";
+		poEl.style.animation="spinpoEl.style.left 8.41s linear infinite";
+//was 2.41, change dto 8.41
 
 
 	}

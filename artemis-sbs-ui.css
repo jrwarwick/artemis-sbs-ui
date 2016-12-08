@@ -371,6 +371,10 @@ table.vertical_threshold_bracket td.nominal_threshold {
 }
 
 
+#celestialregistry {
+	margin-top: 50%;
+}
+
 table.cartograph {
 	border: 2px solid #202550;
 	border-collapse: collapse;
