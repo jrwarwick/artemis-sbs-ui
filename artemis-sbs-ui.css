@@ -118,6 +118,7 @@ button.increment {
 	background-color: transparent;
 	width: 1em;
 	height: 2em;	/*you could actually have different sizes this way, or dynamically set*/
+	outline: none;
 }
 button.decrement {
 	background-image: url('images/button_decrement.png') ;
@@ -127,6 +128,7 @@ button.decrement {
 	background-color: transparent;
 	width: 1em;
 	height: 2em;	/*you could actually have different sizes this way, or dynamically set*/
+	outline: none;
 }
 
 

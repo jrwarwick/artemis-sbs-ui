@@ -199,29 +199,31 @@ var tid = window.setInterval(function(){
 	var ss = "0" + dt.getUTCSeconds();
 	document.getElementById("UTCTime").innerHTML = HH.substr(HH.length - 2) + ":" + mm.substr(mm.length - 2) + ":" + ss.substr(ss.length - 2);
 
-	if (g_clockActive) {
-		remain = (missionLength - missionMark) ;
-		if (remain < 0) {
-			document.getElementById("MissionTimeRemain").style.color = "#DF3030";
-			if (remain % 10 == -1 ) {
-				termAlert();
-			}
-			remain = -1 * remain;
+	//Relative time elements. Well maybe "arbitrarily relative" or something.
+	remain = (missionLength - missionMark) ;
+	if (remain < 0) {
+		document.getElementById("MissionTimeRemain").style.color = "#DF3030";
+		if (remain % 10 == -1 ) {
+			termAlert();
 		}
-		document.getElementById("MissionTimeRemain").innerHTML = ((missionLength - missionMark) < 0 ? '-' : '') 
-			+ ('0' + Math.floor(remain / 3600)).slice(-2) + ":" 
-			+ ('0' + (Math.floor(remain / 60) % 60)).slice(-2) + ":" 
-			+ ('0' + (remain % 60)).slice(-2);
+		remain = -1 * remain;
+	}
+	document.getElementById("MissionTimeRemain").innerHTML = ((missionLength - missionMark) < 0 ? '-' : '') 
+		+ ('0' + Math.floor(remain / 3600)).slice(-2) + ":" 
+		+ ('0' + (Math.floor(remain / 60) % 60)).slice(-2) + ":" 
+		+ ('0' + (remain % 60)).slice(-2);
 
-		document.getElementById("MissionTimeMark").innerHTML = ('0' + Math.floor(missionMark / 3600)).slice(-2) + ":" 
-			+ ('0' + (Math.floor(missionMark / 60) % 60)).slice(-2) + ":" 
-			+ ('0' + (missionMark % 60)).slice(-2);
+	document.getElementById("MissionTimeMark").innerHTML = ('0' + Math.floor(missionMark / 3600)).slice(-2) + ":" 
+		+ ('0' + (Math.floor(missionMark / 60) % 60)).slice(-2) + ":" 
+		+ ('0' + (missionMark % 60)).slice(-2);
+	if (g_clockActive ) { //i.e., is game and clock in "HALT"/pause mode?
 		missionMark ++;
-		//TODO: if "paused" then add one second to the etc
-		if ( missionMark % 109 == 0 )  { //this is a gross approximation of the factor * 100 metricseconds to get a hectosecond 
-			console.log("one 'metric' minute or 'hectosecond' has passed.");
-			//earlier on, we have a css animation that uses a slightly better approximation for the ring period counter, which is one dekasecond
-		}
+		//TODO: mission time mark's visual clock circle should also pause.
+	}
+	//TODO: if "paused" then add one second to the etc
+	if ( missionMark % 109 == 0 )  { //this is a gross approximation of the factor * 100 metricseconds to get a hectosecond 
+		console.log("one 'metric' minute or 'hectosecond' has passed.");
+		//earlier on, we have a css animation that uses a slightly better approximation for the ring period counter, which is one dekasecond
 	}
 
 }, 1000);
