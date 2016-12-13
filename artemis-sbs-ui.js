@@ -50,7 +50,7 @@ function generateOrrery(containerID){
 	{//need a for loop against a random # of planets
 		var planetID = "planetOne";
 		container.innerHTML += " <div id='" + planetID + "-orbit'>\n"
-			+" <img id='"+planetID+"' src=\"3d-wireframe-sphere.svg\"> \n"
+			+" <img id='"+planetID+"' src=\"images/3d-wireframe-sphere.svg\"> \n"
 			+"</div> ";
 		var pEl = document.getElementById(planetID);
 		pEl.style.position = "absolute";
@@ -140,9 +140,8 @@ var audAlert = new Audio("audio/alert.m4a" );
 var audAck = new Audio("audio/bleep.m4a" );
 function audioAlert() {
         window.console && console.log(audAlert.readyState)
-	//audAlert.load();
+		//audAlert.load();
         audAlert.play();
-        //setTimeout(function(audFX){ audFX.pause(); }(audAlert),850);
 }
 
 function audioAcknowledge() {
