@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Artemis - Mission Time Clock</title>
+	<title>SNIS - Mission Time Clock</title>
 	<meta charset="utf-8" /> 
-	<meta name="description" content="Faux GUI supplement for set-dressing a gaming session of Artemis SBS." />
+	<meta name="description" content="Faux GUI supplement for set-dressing a gaming session of SBS style games." />
 	<meta name="author" content="Justin Warwick" />
 	<meta name="mobile-web-app-capable" content="yes" />
 	<link rel='stylesheet' href='./sbs-ui.css' />
@@ -21,7 +21,7 @@
 		  position: relative;
 		  display:inline-block;
 		  margin: 1.5em 2em;
-		  background: #00001C;
+		  background: black;
 		}
 
 		.timeCycWrapper, .timeCycWrapper * {
@@ -40,7 +40,7 @@
 		  height: 100%;
 		  transform-origin: 100% 50%;
 		  position: absolute;
-		  background: #00001C;
+		  background: black;
 		  border: .33em solid #DDA050;      /* <-- Main color control here */
 		}
 
@@ -101,7 +101,8 @@
 	<div id="console_metacontrols">
 	   <a href="javascript:toggleFullScreen();" id="fullscreenToggle">[=]</a>     
 	</div>
-        <div id="console_super_controls">
+	<div id="console_super_controls">
+		<button class="major_action" onclick="window.location.href='menu.html';">MENU</button>
 		<button class="major_action major_action_active" onclick="javascript:g_clockActive=true;">START</button>
 		<button class="major_action" onclick="javascript:g_clockActive=false;">HALT</button>
 		<button class="major_action" onclick="javascript:missionMark=0;">RESET</button>
@@ -109,7 +110,7 @@
 
 
 	<div id="communique" > 
-		<h1>Welcome to Artemis Glitter UI Style Clone Test</h1>
+		<h1>Welcome to SNIS client UI imitator/supplement</h1>
 		<p>Status and information flowing endlessly, giving a certain ambience.</p>
 		<p>Even if information is not functionally meaningful, the experience is enhance by giving a feeling of authenticity.</p>
 		<p>Presumably, you want to fill the screen pretty evenly, if browser were in fullscreen mode. But also becareful not to overflow or else you get scrollbars that spoil the effect a little. Hopefully this page is clean and clear enough that you could copy it, rename it, then start copy and pasting segments that you like and just replace the content and order a little and then you have yourself a custom faux console.</p>

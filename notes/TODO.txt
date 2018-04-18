@@ -1,0 +1,142 @@
+TODO: 
+More confirmation SFX for all buttons.
+
+jquery UI version using ThemeRoller
+	http://jqueryui.com/themeroller/
+
+Terminate transmission in commsvideo is not quite right. set innerhtml of iframe?
+
+imgs
+	4 direcitonal arrows in two sizes and three colors
+	button type 2
+	button type 1 (toggle) middle section, refactor to use no borders
+		selected class (lit hex)
+	--cleanroom editions of everything
+	orthogonal ship outline/diagrams
+
+	LCARS skin
+
+js
+	--fullscreen toggle html5
+	automagic startup routine
+		process templates, defaultinator
+		start fun animations on interval timers
+		auto fullscreen
+	COnsider jquery-ification or Angular-ification
+	menu.html should use client-side QR-code generation to generate a hyperlink to itself
+
+audio
+	From Scratch:
+		confirm
+		notify
+		alert
+		processing
+
+
+html
+	settle out what meta tags are needed. don't forget "mobile-friendliness"
+		open graph?
+
+
+bargraph w/gradient
+vertical bracket type thing with thresholds and currnt level
+sine wave plotting in svg
+div packaging for svg grid
+
+animations
+	special class "randomly_varying", with special companion javascript function that makes small numerical drift in the numbers in child cells/spans/p/li, occasionally changing the color, then stick it in a timer
+
+	x,y scans of cartesian plane. Maybe some fake "pings"/locality highlights
+
+	crossed ellipses that grow and shrink on axes
+
+	waveform analyzer, graphing trig functions
+
+	large text body scroller, with random pauses and highlights
+	
+	orrerry generator w/ varying orbit speeds
+
+simple sample basic editions that are static, but greebly/glittery/fauxdynamic
+fullscreen togglebutton on page
+microtemplating
+	datafeed
+actual consumption from nodejs server's stats
+
+woaH crazy details, share these: 
+	http://www.projectrho.com/public_html/rocket/spacegunconvent.php#id--Nukes_In_Space
+
+
+UI TODO:
+	in response to "damaged" condition, activate these conditions:
+https://css-tricks.com/glitch-effect-text-images-svg/
+http://codepen.io/run-time/pen/knqDo
+
+Cartography
+	http://www.movable-type.co.uk/scripts/latlong.html
+	https://rosettacode.org/wiki/Haversine_formula#JavaScript
+	auto-generate orrerry on RHS
+
+Chronometer
+	mission time mark's visual clock circle animation should also pause on HALT button
+	time remaining needs a visual clcok circle, but counting down from 100% to 0%
+	once clock goes red, reset should fix it, so should more time getting added.
+
+Comms 
+	mainscreen video. might need some hardware like switchers and volume controls
+		https://apprtc.appspot.com/
+
+Ops
+	crew task assignment/allocation:  cartesian plane, 4 primary tasks, bounded rect areas are crew allocations. http://fiddle.jshell.net/2h3tf4vq/4/
+
+Pages
+=====
+ * cartography
+ * life support
+	* atmosphere, water 
+		* comp./ temp/press
+	* radiation
+	* firesupression/damcon
+	* hull integrity (diagram of the ship, orthogonal)
+	* airlocks, as relates to previous two points as well
+ * "IT" computer system stats
+ * security
+ * distribution networks
+   	* plasma
+  	* electricity
+  	* water
+  	* coolant
+ * sig-int 
+	* radio signal scanning & id
+	* decryption module
+ * mission time clock (whatelse can go here?)
+
+
+Pages
+=====
+Most are planned or in progress
+ * cartography
+ * life support
+        * atmosphere, water
+                * comp./ temp/press
+        * radiation, EM, Warp
+        * firesupression/damcon
+        * hull integrity
+        * biological contamination/sterilization
+        * accoustic
+ * "IT" computer system stats
+ * security
+ * distribution networks
+        * plasma
+        * electricity
+        * water
+        * coolant
+        * replicator component matter stream (carbon, hydrogen, oxygen, silicon, iron, sodium, nitrogen, aluminum)
+ * sig int
+        * EMF/radio signal scanning & id
+        * decryption module
+ * mission time clock (whatelse can go here?)
+
+
+
+Thanks
+*  glitter github

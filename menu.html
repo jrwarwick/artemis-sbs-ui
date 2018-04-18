@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Artemis - Supplementary Console Selection</title>
+	<title>SNIS - Supplementary Console Selection</title>
 	<meta charset="utf-8" /> 
-	<meta name="description" content="Faux GUI supplement for set-dressing a gaming session of Artemis SBS." />
+	<meta name="description" content="Faux GUI supplement for set-dressing a gaming session of SBS style games." />
 	<meta name="author" content="Justin Warwick" />
 	<link rel='stylesheet' href='./sbs-ui.css' />
 	<!-- Here would be a good place to put your own additional css link for unique/special things like spacing adjsutments based on element ID. The fewer changes in sbs-ui.css,  the better (esp. if you might want to share improvements that really are general purpose)  -->
@@ -22,7 +22,7 @@
 
 
 	<div id="communique" > 
-		<h1>Welcome to Artemis Glitter UI Style supplementary console selection</h1>
+		<h1>Welcome to SNIS client UI supplementary console selection</h1>
 		<p>Status and information flowing endlessly, giving a certain ambiance.</p>
 		<p>Even if information is not functionally meaningful, the experience is enhance by giving a feeling of authenticity.</p>
 		<p>Presumably, you want to fill the screen pretty evenly, if browser were in fullscreen mode. But also becareful not to overflow or else you get scrollbars that spoil the effect a little. Hopefully this page is clean and clear enough that you could copy it, rename it, then start copy and pasting segments that you like and just replace the content and order a little and then you have yourself a custom faux console.</p>
@@ -50,7 +50,11 @@
 
 <script>
 window.console && console.log("TODO some dynamicness");
-
+if (localStorage['sbs-ui-intro'] == "complete") {
+	console.log("No need to display dialog");
+} else {
+	document.querySelector("#communique").style.display = 'block';
+}
 </script>
 <script src="sbs-ui-wireup.js"></script>
 </body>

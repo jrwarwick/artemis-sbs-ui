@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Artemis Glitter - CSS clone</title>
+    <link rel='stylesheet' href='./artemis-sbs-ui.css' />
+</head>
+<body>
+<div>
+	<div id="console_major">
+		<button class="toggle">ATMOSPHERIC</button>
+		<button class="toggle">AQUATIC</button>
+		<button class="toggle">RADIANT</button>
+	</div>
+
+	<p>Atmospheric analysis from mass spectrometry</br>Scan cycle 1,200,342 in progress</p>
+
+	<h3>MASS SPECTROMETER ACTIVE</h3>
+	<h3>SURFACE ACOUSTIC WAVE ACTIVE</h3>
+
+	<table class="ship_metrics">
+		<tr>
+			<td>Hydrogen</td> <td>4.0402</td>	<td>H<sub>2</sub></td>
+		</tr>
+		<tr>
+			<td>Aqua</td> <td>2.040</td> <td>H<sub>2</sub>O</td>
+		</tr>
+		<tr>
+			<td>Nitrogen</td> <td>70.0402</td>	<td>N<sub>2</sub></td>
+		</tr>
+		<tr>
+			<td>Oxygen</td> <td>11.0402</td>	<td>O<sub>2</sub></td>
+		</tr>
+		<tr>
+			<td>Carbon Monoxide</td> <td>.0402</td>	<td>CO</td>
+		</tr>
+		<tr> 
+			<td>Carbon Dioxide</td> <td>.0023</td>	<td>CO<sub>2</sub></td> 
+		</tr>
+		<tr>
+			<td>Nitrous Oxide</td> <td>200</td> <td>N<sub>2</sub>O</td>
+		</tr>
+		<tr>
+			<td>Acetylene</td> <td>.0333</td> <td>C<sub>2</sub>H<sub>2</sub></td>
+		</tr>
+		<tr>
+			<td>Ethylene</td> <td>.0233</td> <td>C<sub>2</sub>H<sub>4</sub></td>
+		</tr>
+		<tr>
+			<td>Propane</td> <td>.0333</td> <td>C<sub>3</sub>H<sub>8</sub></td>
+		</tr>
+	</table>
+	<p>columns to add:  Autoignition Temperature: 536&deg;C</p>
+	<p> &mu;<sub>JT</sub> :  The Joule.Thomson (Kelvin) coefficient, in &deg;C/bar (SI units: K/Pa)
+	</p>
+
+
+	Ship volume: 225,000m<sup>3</sup>, estimated gas mass. A whole column of deltas
+	<p>Ambient Temparature 23&deg;C  scale of Kelvin w/ centigrade range . Add in trends, or at least deltas </p> 
+
+	<h3>Atmospheric Gas Pressure:  <span class="nominal">89.726 K/Pa</span></h3>   
+		scale of sysfail, lung/edema fail (50 K/Pa), normal too high. Boyle's law graph
+
+        <div id="dualpresentation" class="wrapper2column">
+                <div class="leftcolumn">
+                        <table class="vertical_threshold_bracket">
+                                <tr><td class="critical_threshold">-</td></tr>
+                                <tr><td>-</td></tr>
+                                <tr><td class="nominal_threshold">=</td></tr>
+                                <tr><td class="nominal_threshold">&mdash;</td></tr>
+                                <tr><td class="nominal_threshold">-</td></tr>
+                                <tr><td>-</td></tr>
+                                <tr><td class="critical_threshold">-</td></tr>
+                                <tr><td class="critical_threshold">-</td></tr>
+                                <tr><td class="critical_threshold">-</td></tr>
+                        </table>
+                </div>
+                <div class="rightcolumn">
+                        <p>The goldilocks variation: not too cold not too hot, only right in the middle is green</p>
+                </div>
+        </div>
+
+	<p>Relative Humidity: 42%</p>
+
+<div id="dualpresentation" class="wrapper2column">
+	<div class="yscale">x x x x x x </div>
+	<div class="maingrid">O O O O O O</div>
+</div>
+	<div class="wrapper2column">
+		<div class="leftcolumn">
+			<h3>IONIZING RADIATION</h3>
+			<span class="confirmed">[Est. Avg. Absorption: .0457 mSv]</span>
+			<table class="ship_metrics">
+				<th><td>&alpha;</td><td>&beta;</td><td>&gamma;</td><td>n</td><td>x</td></th>
+				<tr>
+					<td>Bow</td> <td>2.040</td> <td>1.34</td> <td>0.24</td> <td>0.34</td> <td>1.34</td>
+				</tr>
+				<tr>
+					<td>Core</td> <td>2.040</td> <td class="urgent">1.34</td> <td>2.34</td> <td>3.57</td> <td>1.88</td>
+				</tr>
+				<tr>
+					<td>Aft</td> <td>2.040</td> <td>1.37</td> <td>1.32</td> <td>1.76</td> <td>1.34</td>
+				</tr>
+				<caption>UNIT: Roentgen</caption>
+			</table>
+		</div>
+		<div class="rightcolumn">
+			<h3>MICROBIOLOGIC</h3>
+			<button class="action">REFRESH</button>
+			<ul>
+				<li class="nominal"> filtration status: ACTIVE</li>
+				<li class="nominal"> foreign organism: -</li>
+				<li>sample rate: 1.47% / hour</li>
+				<li>bacterial culture: nominal</li>
+			</ul>
+		</div>
+	</div>
+	
+
+
+</div>
+
+<h3> CARTESIAN PROJECTION </h3>
+<div style="width:502px;height:502px">
+  <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="blue" stroke-width="0.5"/>
+      </pattern>
+      <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+        <rect width="100" height="100" fill="url(#smallGrid)"/>
+        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="blue" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#grid)" />
+  </svg>
+</div>
+
+
+
+<script>
+window.console && console.log("TODO some dynamicness");
+
+function demo() {
+	var sndRedAlert = new Audio("./red-alert.m4a" );
+
+	window.console && console.log(sndRedAlert.readyState)
+//	sndRedAlert.load(); 
+	sndRedAlert.play();
+	//setTimeout(function(sndFX){ sndFX.pause(); }(sndRedAlert),850);
+
+}
+
+
+</script>
+</body>
+</html>

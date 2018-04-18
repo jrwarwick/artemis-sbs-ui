@@ -1,0 +1,143 @@
+@import "compass/css3";
+
+$thumb-w: 2.25em;
+$track-w: 19.75em;
+$track-h: 1.75em;
+$thumb-h: 1*$track-h;
+$thumb-r: .5em;
+$track-bw: 1.75*$thumb-w;
+$track-pad: .125em;
+$thumb-sh-c: #044;
+$track-bg: #033;
+
+$diff-h: ($thumb-h - $track-h)/2;
+
+$ruler-k: 10;
+$ruler-line-w: .125em;
+$ruler-line-h: 1.5em;
+$ruler-w: $ruler-k*$ruler-line-h + $ruler-line-w;
+$ruler-c: #099;
+
+$sign-w: .75em;
+$sign-h: .125em;
+$sign-offset: .66*$sign-w;
+$sign-cover: $track-w - 2*$sign-offset - $sign-h;
+$sign-c: #099;
+
+$ruler-list: ();
+$ruler-size: ();
+$ruler-repeat: ();
+
+@for $i from 0 through $ruler-k {
+  $ruler-list: $ruler-list, 
+    radial-gradient($ruler-c, rgba($ruler-c, 0)) 
+      ($track-w - $ruler-w)/2 + $i*$ruler-line-h 100%;
+  $ruler-size: $ruler-size, $ruler-line-w $ruler-line-h;
+  $ruler-repeat: $ruler-repeat, no-repeat;
+}
+
+@mixin track() {
+  box-sizing: border-box;
+  padding: $track-pad;
+  width: $track-w; height: $track-h;
+  border-radius: .25em; /*#{$track-h} / #{$track-h/2};*/
+  box-shadow: 
+    inset 0 2px 4px #077, 
+    0 2px 4px #077;
+  background: #002025;
+    /*linear-gradient($track-bg, $track-bg) content-box, 
+    linear-gradient(#efefef, #c2c2c2) border-box;*/
+}
+
+@mixin thumb() {
+  box-sizing: border-box;
+  border: solid 0 transparent;
+  border-width: 1px .3125em;
+  width: $thumb-w; height: $thumb-h;
+  border-radius: $thumb-r;
+  box-shadow: 
+    -3*$thumb-w/8 0 3*$thumb-w/8 (-3*$thumb-w/8) $thumb-sh-c, 
+    -3*$thumb-w/8 0 $thumb-w/2 (-3*$thumb-w/8) $thumb-sh-c, 
+    -3*$thumb-w/8 0 5*$thumb-w/8 (-3*$thumb-w/8) $thumb-sh-c, 
+    -3*$thumb-w/8 0 3*$thumb-w/4 (-3*$thumb-w/8) $thumb-sh-c, 
+    -3*$thumb-w/8 0 7*$thumb-w/8 (-3*$thumb-w/8) $thumb-sh-c, 
+    -$thumb-w/2 0 $thumb-w (-3*$thumb-w/8) $thumb-sh-c;
+  background: 
+    linear-gradient(90deg, #055, #055) content-box, 
+    linear-gradient(90deg, #00c9c7, #00d7d7) border-box;
+  cursor: ns-resize;
+}
+
+html {
+  min-width: 20em; height: 100%;
+  background: #002; /*radial-gradient(#fbfbfb, #8b8b8b);*/
+}
+
+input[type='range'] {
+  &, 
+  &::-webkit-slider-runnable-track, 
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+  
+  position: absolute;
+  top: 50%; left: 33%;
+  border: solid 0 transparent;
+  border-width: 0 $track-h $ruler-line-h/2;
+  padding: 0 0 $ruler-line-h;
+  width: $track-w;
+  height: $thumb-h + 2*$track-h;
+  border-radius: .05em;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  background: 
+    linear-gradient($sign-c, $sign-c) 
+      calc(100% - #{$sign-offset - $sign-w/2 + $sign-h/2}) 
+      calc(100% - #{$ruler-line-h/2 - $sign-h/2}), 
+    linear-gradient(90deg, 
+        $sign-c, $sign-c $sign-h, 
+        transparent $sign-h, transparent $sign-cover) 
+      $sign-offset calc(100% - #{$ruler-line-h/2 - $sign-w/2}),
+    $ruler-list;
+  background-repeat: no-repeat, repeat-x, $ruler-repeat;
+  background-size: $sign-w $sign-h, $sign-cover $sign-w, $ruler-size;
+  font-size: 1em;
+  cursor: pointer;
+  
+  &::-webkit-slider-runnable-track {
+    @include track();
+  }
+  &::-moz-range-track {
+    @include track();
+  }
+  &::-ms-track {
+    border: none;
+    @include track();
+    color: transparent;
+  }
+  
+  &::-webkit-slider-thumb {
+    margin-top: -$diff-h - $track-pad;
+    @include thumb();
+  }
+  &::-moz-range-thumb {
+    @include thumb();
+  }
+  &::-ms-thumb {
+    @include thumb();
+  }
+  
+  &::-ms-fill-lower, 
+  &::-ms-tooltip {
+    display: none;
+  }
+  
+  &:nth-of-type(2) {
+    left: 66%;
+    transform: translate(-50%, -50%) rotate(-90deg) scaleY(-1);
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 .25em #808080;
+  }
+}

@@ -136,8 +136,35 @@ function generateOrrery(containerID){
 
 
 
+
+                                /*var 
+document.addEventListener("DOMContentLoaded", function(event) { 
+	//do work
+	var Bel = document.getElementsByTagName("body")[0];
+	Bel.insertAdjacentHTML("beforeend", '<audio src="audio/changescreen.webm" type="audio/webm" />');
+});
+
+	--refrence--
+			thisAudio = $('<audio/>').attr({
+			src: BASE_AUDIO_PATH + url,
+			preload: "none",
+			onplay:"$(this).siblings('button').css('color', 'yellow');",
+			onended: "$(this).siblings('button').css('color', 'white');",
+			type: mediaTypes[url.substr(url.length - 3)]
+			})      
+*/
+
+
+
+//TODO:
+//function establish audio type:
+	//Start with ogg, fallback to m4a, fallback to webm
+	//then loop and load all needed files
+	//bonus: have a fallback for no supported file types:  floating div pops up and flashes, then disappears. der blinken lights
+
 var audAlert = new Audio("audio/alert.m4a" );
-var audAck = new Audio("audio/bleep.m4a" );
+var audAck = new Audio("audio/changescreen.webm" );
+//var audAck = new Audio("audio/bleep.m4a" );
 function audioAlert() {
         window.console && console.log(audAlert.readyState)
 		//audAlert.load();
@@ -147,6 +174,13 @@ function audioAlert() {
 function audioAcknowledge() {
 	audAck.play();
 }
+
+
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+	console.log("Attempting to play " + audAck);
+	audioAcknowledge();
+});
 
 
 

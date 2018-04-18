@@ -1,0 +1,42 @@
+from the ISS' interferometer project.
+
+ Compound name 	Typea
+ CUCLb (ppmV) Estimatedc detection limit (ppmV)
+1 methanol (methyl alcohol) alcohol 70
+2 ethanol (ethyl alcohol) alcohol 30
+3 2-propanol (isopropanol, isopropyl alcohol) alcohol 30
+4 1-butanol (n-butyl alcohol) alcohol 50
+5 formaldehyde (methanal) (CH2O) aldehyde 5
+6 acetaldehyde (ethanal) (CH3CHO) aldehyde 30
+7 propionaldehyde (propanal, propyl aldehyde) (CH3CH2CHO) aldehyde 50
+8 butyraldehyde (butanal) (CH3(CH2) 2CHO) aldehyde 40
+9 toluene (methyl benzene) aromatic 6
+10 meta-xylene (meta-dimethyl benzene) aromatic 15
+11 ortho-xylene (ortho-dimethyl benzene) aromatic 6
+12 para-xylene (para-dimethyl benzene) aromatic 20
+13 ethyl benzene aromatic 20
+14 ethyl acetate (CH3COOC2H5) ester 5
+15 n-butyl acetate (CH3COO(CH2) 3CH3, C6H12O2) ester 4
+16 dichloromethane (methylene chloride) halogenated 12
+17 Freon 11 (CCl3F) halogenated 2
+18 Freon 12 (CCl2F2) halogenated 1
+19 Halon 1301 (trifluorobromomethane) (CF3Br) halogenated 1.25
+20 Freon 113 (CCl2FCClF2, C2Cl3F3) halogenated 3
+21 perfluoropropane (octafluoropropane) (C3F8) halogenated 100
+22 hexane (n-) hyd. 12
+23 acetone (2-propanone, dimethyl ketone) (CH3COCH3) ketone 10
+24 2-butanone (methyl ethyl ketone) (CH3COCH2CH3) ketone 30
+25 hexamethyl cyclo-trisiloxane ([(CH3)2SiO]3 in Si-O ring) siloxane 2
+26 octamethyl cyclo-tetrasiloxane ([(CH3)2SiO]4 in Si-O ring) siloxane 1.2
+27 decamethyl cyclo-pentasiloxane ([(CH3)2SiO]5 in Si-O ring) siloxane 1
+28 ammonia misc. 4
+29 carbon monoxide misc. 10
+30 methane background 500 -
+31 carbon dioxide background 10000 -
+32 water background 25028 -
+
+Table 1. ANITA.s gas scenario and estimated detection limits for a 1 minute measurement time according to the gas testing. The
+detection limits for the background gases are not important and were not tested for.
+a aromatic = aromatic hydrocarbon; halogenated = halogenated hydrocarbon; hyd. = hydrocarbon; misc. = miscellaneous;
+background = background gas (always present). b CUCL: calibration upper concentration limit (variation span from 0 to
+CUCL). c ISO 95% confidence.

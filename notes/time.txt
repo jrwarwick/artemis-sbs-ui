@@ -1,0 +1,14 @@
+The second is the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium 133 atom. 
+
+http://www.bipm.org/metrology/time-frequency/units.html
+
+10 billion periods = 1 "metric second"
+	this is only about 1/10 of second more than current seconds. a good solid count
+
+factor=10,000,000,000 / 9 192 631 770 
+
+100 seconds in a "hectosecond" a.k.a. metric minute
+(conventionalseconds count * factor) % 100 = 0
+
+metricSecondFactor = (10000000000 / 9192631770);
+((metricSecondFactor * missionMark) % 100 == 0)

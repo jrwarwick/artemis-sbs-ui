@@ -1,7 +1,7 @@
-Imitation Artemis SBS UI in HTML5/CSS/JS for Enhanced Ambiance
+Imitation SBS UI in HTML5/CSS/JS for Enhanced Ambiance
 ==============================================================
 
-Supplemental GUIs in HTML5/CSS/JS, as environmental decoration for multiplayer games like Artemis SBS or Space Nerds in Space or Empty Epsilon; so-called "starship bridge simulators". Even if information is not functionally meaningful, the experience is enhanced by giving a feeling of authenticity, ambiance.
+Supplemental GUIs in HTML5/CSS/JS, as environmental decoration for multiplayer games like Space Nerds in Space or Artemis SBS or Empty Epsilon; so-called "starship bridge simulators". Even if information is not functionally meaningful, the experience is enhanced by giving a feeling of authenticity, ambiance.
 
 This is meant to be an easy-to-use visual layer for greebly/glittery/set-dressing type screens on an SBS custom bridge. In the case of Artemis, this is somewhat similar to the TAC and INFO screens from the Data station, but with no real "in-game" information. It is essentially just a CSS theme with an HTML5 "template" and a few examples to get you started. At the fancier end of things, you could probably glue this together with some kind of fancy NodeJS backend like artemis-glitter (that was certainly my original plan), but, baby steps. This project is inspired by @IvanSanchez's artemis-glitter, but more modest in scope. However, at some point in the future, the astute Game Master may be able to utilize these secondary interfaces to convey information to players or trigger game events in response to particular secondary interface actions, all in an in-game meaningful fashion; e.g., science scans of a region of space, rather than just known objects, reveals some play-impacting information or maybe a "reverse the polarity of the deflector dish while flooding the plasma vents" can transfer some energy to a stranded merchant vessel, or perhaps moving a damcon team to an aft node (where the cargo bay is) represents the damcon team collecting needed parts to perform a critical repair (that would otherwise become re-damaged by GM standing in for "unstable phase transducers").
 
@@ -17,7 +17,7 @@ Just point to the versions with the appropriate name prefix. If you run an OS wi
 
 Presently pages are client-side only in any dynamicness. 
 
-Live demo:  http://jrwarwick.github.io/artemis-sbs-ui/
+Live demo:  http://jrwarwick.github.io/snis-sbs-ui/
 
 
 Project Plan
@@ -65,9 +65,9 @@ Generic-ification to make it useful for many games including, but not limited to
  * Artemis
  * Space Nerds in Space
  * Empty Epsilon
- * No game in particular, just put on laptop, insert into tent or couch-fort imaginary spaceship
+ * No game in particular, just put on laptop, insert into tent, cardboard box, or couch-fort imaginary spaceship
 
-Optional server-side statefulness via DB
+Optional (gracefully falling back) server-side statefulness via DB
  * angular/meteor
  * mongodb or couchdb
  * some kind of graceful fall back to a handful of static JSON files that would at least make pages look nice.
@@ -92,7 +92,8 @@ Some of the technical decisions that don't seem very "modern" or "conventional" 
 
 License
 =======
-Everything is shared under the MIT license, details in the LICENSE file. A few bits and pieces may resemble or reference the work others, and intended just for example.
+A few audio files are copyright Stephen M. Cameron, used under Creative Commons Share Alike 3.0.
+Everything else is shared under the MIT license, details in the LICENSE file. A few bits and pieces may resemble or reference the work others, and intended just for example.
 
 
 Thanks
@@ -121,6 +122,6 @@ for information and references:
 for inspiration:
 * https://github.com/IvanSanchez/artemis-glitter
 * http://youmightnotneedjquery.com/
+* http://artemis.eochu.com/
+* https://smcameron.github.io/space-nerds-in-space/
 
-and of course:
-*  http://artemis.eochu.com/
