@@ -5,13 +5,18 @@
 	<meta charset="utf-8" /> 
 	<meta name="description" content="Faux GUI supplement for set-dressing a gaming session of Artemis SBS." />
 	<meta name="author" content="Justin Warwick" />
+	<meta name="mobile-web-app-capable" content="yes" />
 	<link rel='stylesheet' href='./snis-sbs-ui.css' />
 	<!-- Here would be a good place to put your own additional css link for unique/special things like spacing adjsutments based on element ID. The fewer changes in sbs-ui.css,  the better (esp. if you might want to share improvements that really are general purpose)  -->
-        <script src="./sbs-ui.js"></script>
+	<script src="./sbs-ui.js"></script>
 </head>
 <body>
 <div id="super_container">
-        <div id="console_super_controls">
+	<div id="console_metacontrols">
+		<a href="javascript:toggleFullScreen();" id="fullscreenToggle">[=]</a>
+	</div>
+	<div id="console_super_controls">
+		<button class="major_action" onclick="window.location.href='menu.html';">MENU</button>
 		<button class="major_action major_action_active">ACTIVATE</button>
 		<button class="major_action">LAUNCH</button>
 		<button class="major_action">REVERSE POLARITY</button>
@@ -19,7 +24,7 @@
 
 
 	<div id="communique" > 
-		<h1>Welcome to SNIS UI Style Clone Test</h1>
+		<h1>Welcome to SNIS client UI imitator/supplement</h1>
 		<p>Status and information flowing endlessly, giving a certain ambience.</p>
 		<p>Even if information is not functionally meaningful, the experience is enhance by giving a feeling of authenticity.</p>
 		<p>Presumably, you want to fill the screen pretty evenly, if browser were in fullscreen mode. But also becareful not to overflow or else you get scrollbars that spoil the effect a little. Hopefully this page is clean and clear enough that you could copy it, rename it, then start copy and pasting segments that you like and just replace the content and order a little and then you have yourself a custom faux console.</p>
@@ -38,7 +43,7 @@
 			<li>insufficient data</li>
 		</ul>
 		<button class="action">SCAN</button>
-		<p>Button images are similar to, but not exactly the same as official Artemis buttons. If you want to see how close you can get to &quot;real&quot; Artemis, you could just substitute the screen-captured images. They are included for demo purposes only, of course.</p>
+		<p>Button images are similar to, but not exactly the same as official reference software buttons. If you want to see how close you can get to &quot;real&quot; the original game, you could just substitute the screen-captured images. They are included for demo purposes only, of course.</p>
 Specify in CSS
 
 Use the following CSS rules to specify these families:

@@ -21,6 +21,7 @@ body {
 	color: #22DD22;
 	background-color: #020202;
 	font-family: 'Orbitron', Arial, Helvetica, sans-serif;
+	font-size:.90em; /* orbitron is seemingly extra biggish */
 	/*Gadget, sans-serif;*/
 }
 
@@ -50,6 +51,22 @@ button {	/*decent, graceful fall-back defaults*/
 	text-align:right;
 	padding-top: 0em;
 	padding-bottom: 0em;
+}
+button:hover{
+	color: #50DF50;
+	background-color: #040804;
+	border-top: 1px solid #50DF50;
+	border-right: 1px solid #50DF50;
+	border-bottom: 1px solid #50DF50;
+	border-left: 1px solid #50DF50;
+}
+button:focus{
+	color: #8AE08A;
+	background-color: #040804;
+	border-top: 1px solid #8AE08A;
+	border-right: 1px solid #8AE08A;
+	border-bottom: 1px solid #8AE08A;
+	border-left: 1px solid #8AE08A;
 }
 button.toggle {
 /* 
