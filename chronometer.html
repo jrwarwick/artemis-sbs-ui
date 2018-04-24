@@ -22,6 +22,8 @@
 		  display:inline-block;
 		  margin: 1.5em 2em;
 		  background: black;
+		  position: fixed; /* this and right: 50% prevent wandering on non-monospace font ticks*/
+		  right: 33%;
 		}
 
 		.timeCycWrapper, .timeCycWrapper * {
@@ -121,20 +123,6 @@
 
 	<div id="chrono_container">
 		<div>
-			<h3>Mission Time Mark</h3>
-			<span id="MissionTimeMark" class="jumbo timedisplay">HH:MI:SS</span>
-			<div class="timeCycWrapper">
-			  <div class="pie spinner"></div>
-			  <div class="pie filler"></div>
-			  <div class="mask"></div>
-			</div>
-					
-			<h3>Time Remaining</h3>
-			<span id="MissionTimeRemain" class="jumbo timedisplay">HH:MI:SS</span>
-			<div class="timeCycWrapper">
-				<button class="increment" onclick="missionLength+=60;"> </button>
-				<button class="decrement" onclick="missionLength-=60;"> </button>
-			</div>
 			<h3>UTC</h3>
 			<span id="UTCTime" class="jumbo timedisplay">HH:MI:SS</span>
 			<div class="timeCycWrapper">
@@ -150,6 +138,22 @@
 			  <div class="pie filler"></div>
 			  <div class="mask"></div>
 			</div>
+
+			<h3>Mission Time Mark</h3>
+			<span id="MissionTimeMark" class="jumbo timedisplay">HH:MI:SS</span>
+			<div class="timeCycWrapper">
+			  <div class="pie spinner"></div>
+			  <div class="pie filler"></div>
+			  <div class="mask"></div>
+			</div>
+					
+			<h3>Time Remaining</h3>
+			<span id="MissionTimeRemain" class="jumbo timedisplay">HH:MI:SS</span>
+			<div class="timeCycWrapper">
+				<button class="increment" onclick="missionLength+=60;"> </button>
+				<button class="decrement" onclick="missionLength-=60;"> </button>
+			</div>
+
 		</div>
 	</div>
 
