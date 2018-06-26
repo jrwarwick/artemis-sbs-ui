@@ -49,8 +49,13 @@
 </div>
 
 <script>
-window.console && console.log("TODO some dynamicness");
-
+	window.console && console.log("TODO some dynamicness");
+	
+	if (localStorage['sbs-ui-intro'] == "complete") {
+		console.log("No need to display dialog");
+	} else {
+		document.querySelector("#communique").style.display = 'block';
+	}
 </script>
 <script src="sbs-ui-wireup.js"></script>
 </body>
