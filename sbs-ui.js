@@ -160,29 +160,64 @@ document.addEventListener("DOMContentLoaded", function(event) {
 //function establish audio type:
 	//Start with ogg, fallback to m4a, fallback to webm
 	//then loop and load all needed files
-	//bonus: have a fallback for no supported file types:  floating div pops up and flashes, then disappears. der blinken lights
+	//bonus: have a fallback for no supported file types (or MUTE active):  floating div pops up and flashes, then disappears. der blinken lights
 
-var audAlert = new Audio("audio/alert.m4a" );
+/*
 var audAck = new Audio("audio/changescreen.webm" );
-//var audAck = new Audio("audio/bleep.m4a" );
+var audAlert = new Audio("audio/alert.m4a" );
+var audInput = new Audio("audio/ui2.webm" );
+*/
+
+
+/******
+var audioExtensions = {};
+	audioExtensions["ogg"] = "ogg";
+	audioExtensions["webm"] = "webm";
+	audioExtensions["mp4"] = "aac";
+var audioPath = "./audio/";
+var audioType;
+
+var audAck;
+var audAlert;
+var audInput;
+
+auDummy = document.getElementById("audUmmy").appendChild(document.createElement("audio"));
+for (var key in audioExtensions) {
+	if (audAck.canPlayType("audio/"+audioExtensions[key]) != '') {
+		audAck.src = audioPath + "alert." + key;
+		//TODO: test it further??
+		audioType =  audAck.src.split(".")[1];
+		console.log("We have a winner: " + audioType);
+		break;
+	}
+}
+audAck = new Audio("audio/changescreen." + audioType);
+audAlert = new Audio("audio/ui18." + audioType);
+audInput = new Audio("audio/ui2." + audioType);
+
 function audioAlert() {
         window.console && console.log(audAlert.readyState)
 		//audAlert.load();
         audAlert.play();
+		//TODO:bonus: have a fallback for no supported file types (or MUTE active):  floating div pops up and flashes, then disappears. der blinken lights
 }
 
 function audioAcknowledge() {
 	audAck.play();
 }
 
-
+function audioInput() {
+	audInput.play();
+}
 
 document.addEventListener("DOMContentLoaded", function(event) { 
 	console.log("Attempting to play " + audAck);
 	audioAcknowledge();
 });
 
+******/
 
+//dlete me//document.body.appendChild(createElement)
 
 ////TODO
 //getters for shipname, shiphealth, speed, loc, 

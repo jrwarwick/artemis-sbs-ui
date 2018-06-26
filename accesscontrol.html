@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SNIS - Access Control</title>
+	<meta charset="utf-8" /> 
+	<meta name="description" content="Faux GUI supplement for set-dressing a gaming session of SBS style games." />
+	<meta name="author" content="Justin Warwick" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<link rel='stylesheet' href='./sbs-ui.css' />
+	<!-- Here would be a good place to put your own additional css link for unique/special things like spacing adjsutments based on element ID. The fewer changes in sbs-ui.css,  the better (esp. if you might want to share improvements that really are general purpose)  -->
+	<style>
+		#access_denied,#access_granted {
+			display:none;
+		}
+		.codekeypad {
+			font-size: 2em;
+		}
+		.codekeypad button{
+			width:1.5em;
+		}
+		.codekeypad td.cancel:hover {
+			background-color:#040804;
+			color:#50DF50;
+		}
+	</style>
+	<script src="./sbs-ui.js"></script>
+</head>
+<body>
+<div id="super_container">
+	<div id="console_metacontrols">
+		<a href="javascript:toggleFullScreen();" id="fullscreenToggle">[=]</a>
+	</div>
+	<div id="console_super_controls">
+		<button class="major_action" onclick="window.location.href='menu.html';">MENU</button>
+		<button class="major_action major_action_active">UNLOCK</button>
+		<button class="major_action">LOCK</button>
+		<button class="major_action">RESET KEY CODE</button>
+	</div>
+
+
+	<div id="communique" > 
+		<h1>Welcome to SNIS client UI imitator/supplement</h1>
+		<p>Status and information flowing endlessly, giving a certain ambience.</p>
+		<p>Even if information is not functionally meaningful, the experience is enhance by giving a feeling of authenticity.</p>
+		<p>Presumably, you want to fill the screen pretty evenly, if browser were in fullscreen mode. But also becareful not to overflow or else you get scrollbars that spoil the effect a little. Hopefully this page is clean and clear enough that you could copy it, rename it, then start copy and pasting segments that you like and just replace the content and order a little and then you have yourself a custom faux console.</p>
+		<button class="action" onclick="javascript:this.parentNode.style.display = 'none';">ACKNOWLEDGE</button>
+		<!--Probably it is better to put onclick and other evenhandler code in a seperate script block, even in a separate JS file. But this works ok too.-->
+	</div>
+
+
+	<div>
+		<h2 id="access_denied" class="urgent">ACCESS DENIED</h2>
+		<h2 id="access_granted" class="confirmed">ACCESS GRANTED</h2>
+		<p>CONDITION ACTIVE</p>
+		<ul>
+			<li>ACCESS DENIED</li>
+			<li class="confirmed">ACCESS GRANTED</li>
+			<li>Optional secret message communique is also displayed on access granted</li>
+			<li>default code 123456 </li>
+			<li>add some other factors such as biometric (palm scan and iris scan with fake brightspot)</li>
+			<li>add some other factors such as voiceprint (challenge phrase)</li>
+			<li>Running characters entered display, with hide and reveal buttons</li>
+			<li>LARPsters enter button: if you press it on the top, it will succeed, if you press it on the bottom it will fail, so you don't actually have to type in the right or wrong thing, you can just pretend.</li>
+		</ul>
+
+<!--
+<link href="https://fonts.googleapis.com/css?family=Aldrich|Bungee+Hairline|Iceland|Orbitron|Rajdhani|Sarpanch|Share+Tech|Share+Tech+Mono" rel="stylesheet">
+-->
+	</div>
+
+
+
+	<h3>ACCESS KEY ENTRY</h3>
+	<table class="codekeypad">	<!--As plain as possible-->
+		<tr>
+			<td rowspan="5" class="cancel">CANCEL</td>
+			<!--<td>ALPHA</td>
+			<td>BETA</td>
+			<td>DELTA</td>-->
+			<td><button>&Alpha;</button></td>
+			<td><button>&Beta;</button></td>
+			<td><button>&Delta;</button></td>
+			<td rowspan="5" class="enter">ENTER</td>
+		</tr>
+		<tr>
+			<td><button>1</button></td>
+			<td><button>2</button></td>
+			<td><button>3</button></td>
+		</tr>
+		<tr>
+			<td><button>4</button></td>
+			<td><button>5</button></td>
+			<td><button>6</button></td>
+		</tr>
+		<tr>
+			<td><button>7</button></td>
+			<td><button>8</button></td>
+			<td><button>9</button></td>
+		</tr>
+		<tr>
+			<td><button>X</button></td>
+			<td><button>0</button></td>
+			<td><button>.</button></td>
+		</tr>
+	</table>
+
+
+	<table class="ship_metrics">
+		<tr>
+			<td>ALPHA</td> <td>100</td>
+		</tr>
+		<tr>
+			<td>BETA</td> <td>200</td>
+		</tr>
+		<tr>
+			<td>DELTA</td> <td>333</td>
+		</tr>
+		<tr>
+			<td>GAMMA</td> <td>400</td>
+		</tr>
+	</table>
+
+	
+		<button class="action">SCAN</button>
+	
+	<h3> CARTESIAN PROJECTION - SVG </h3>
+	<div style="width:502px;height:502px;margin-left:1em;">
+	  <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+	    <defs>
+	      <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+	        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="blue" stroke-width="0.5"/>
+	      </pattern>
+	      <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+	        <rect width="100" height="100" fill="url(#smallGrid)"/>
+	        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="blue" stroke-width="1"/>
+	      </pattern>
+	    </defs>
+	    <rect width="100%" height="100%" fill="url(#grid)" />
+	
+	    <image xlink:href="images/rings.svg" x="50" y="50" width="100" height="100" />
+	  </svg>
+	</div>
+	
+
+	<h3> CARTESIAN PROJECTION - PURE HTML TABLE </h3>
+	Less fancy, less options for advanced effects and animations, but simpler overall and more backwards-compatible. Also maybe easier to template in "real" data. Actually a couple of different internal layouts possible here. Also: amazing how fancy you can get with CSS3!
+	<table class="cartograph starry_expanse subgridding">
+		<tr class="sector-A">
+			<td class="sector-1"> A1 </td>
+			<td class="sector-2"> A2 </td>
+			<td class="sector-3"> A3 </td>
+			<td class="sector-4"> A4 </td>
+			<td class="sector-5"> A5 </td>
+		</tr>
+		<tr class="sector-B">
+			<td class="sector-1"> B1 </td>
+			<td class="sector-2"> B2 </td>
+			<td class="sector-3"> B3 </td>
+			<td class="sector-4"> B4 </td>
+			<td class="sector-5"> B5 </td>
+		</tr>
+		<tr class="sector-C">
+			<td class="sector-1"> C1 </td>
+			<td class="sector-2"> C2 </td>
+			<td class="sector-3"> C3 </td>
+			<td class="sector-4"> C4 </td>
+			<td class="sector-5"> C5 </td>
+		</tr>
+		<tr class="sector-D">
+			<td class="sector-1"> D1 </td>
+			<td class="sector-2"> D2 </td>
+			<td class="sector-3"> D3 </td>
+			<td class="sector-4"> D4 </td>
+			<td class="sector-5"> D5 </td>
+		</tr>
+		<tr class="sector-E">
+			<td class="sector-1"> E1 </td>
+			<td class="sector-2"> E2 </td>
+			<td class="sector-3"> E3 </td>
+			<td class="sector-4"> E4 </td>
+			<td class="sector-5"> E5 </td>
+		</tr>
+	</table>
+	TODO: grab the nested tables version from the glitter project
+	<ul class="button_stack">
+		<li> <button class="major_action" onclick="audioAlert();"> SINK BATTLESHIP </button> </li>
+		<li> <button class="major_action"> SINK DESTROYER</button> </li>
+		<li> <button class="major_action"> SINK CARRIER</button> </li>
+	</ul>
+	
+	
+	<h3> SIDE-BY-SIDES </h3>
+	<div id="dualpresentation1" class="wrapper2column">
+	    <div class="yscale">
+			<table>
+				<tr><td>100</td></tr>
+				<tr><td>75</td></tr>
+				<tr><td>50</td></tr>
+				<tr><td>25</td></tr>
+				<tr><td>0</td></tr>
+				<tr><td>-25</td></tr>
+			</table>
+		</div>
+	    <div class="maingrid">
+			<p>3874</p>
+			<p> <span class="graphbar"> 034  </span> &nbsp; <span class="graphbar"> TODO: bargraphs or something</span> </p>
+			<p>34893  X</p>
+		</div>
+	</div>
+	
+
+	<div id="dualpresentation2" class="wrapper2column">
+		<div class="leftcolumn">
+			<table class="vertical_threshold_bracket">
+				<tr><td class="critical_threshold">_</td></tr>
+				<tr><td class="critical_threshold">_</td></tr>
+				<tr><td>&mdash;</td></tr>
+				<tr><td> </td></tr>
+				<tr><td>-</td></tr>
+				<tr><td>-</td></tr>
+			</table>
+		</div>
+		<div class="rightcolumn">
+			sine wave or number grid or something?
+		</div>
+	</div>
+
+
+	<p></p>
+
+
+	<div id="dualpresentation" class="wrapper2column">
+		<div class="leftcolumn">
+			<table class="vertical_threshold_bracket">
+				<tr><td class="critical_threshold">-</td></tr>
+				<tr><td>-</td></tr>
+				<tr><td>-</td></tr>
+				<tr><td class="nominal_threshold">-</td></tr>
+				<tr><td class="nominal_threshold">&mdash;</td></tr>
+				<tr><td class="nominal_threshold">-</td></tr>
+				<tr><td>-</td></tr>
+				<tr><td>-</td></tr>
+				<tr><td class="critical_threshold">-</td></tr>
+			</table>
+		</div>
+		<div class="rightcolumn">
+			<p>
+				<a href="#INCREMENT_ACTION" class="increment"><img src="images/button_increment.png" /></a>
+				<button class="increment"></button>
+			</p>
+			<p>The goldilocks variation: not too cold not too hot, only right in the middle is green</p>
+			<p>
+				<a href="#DECREMENT_ACTION" class="decrement"><img src="images/button_decrement.png" /></a>
+				<button class="decrement"></button>
+			</p>
+		</div>
+	</div>
+
+
+	<div>
+		<input type="range" min="0" max="11" value="3" />
+		<input type="range" min="0" max="11" value="7" />
+	</div>
+
+</div>
+<audio id="audUmmy"/><!--Just leave this here, just needed to be able to query canplay in the initialization code to load compatible media types -->
+
+<script>
+window.console && console.log("Initiating some dynamicness");
+//TODO create semi persistence by checking for lcoalstorage existence first
+localStorage["KeyCode"] = '123456';
+var CodeEntry = '';
+function keypadpress(me) {
+	var codeChar = me.innerText;
+	window.console && console.log(me.innerText);
+	audioInput();
+	if (codeChar == 'X') {
+		CodeEntry = CodeEntry.slice(0,-1);
+	} else {
+		CodeEntry += codeChar;
+	}
+	if (CodeEntry == localStorage["KeyCode"]) {
+		console.log("ACCESS GRANTED!");
+		document.getElementById("access_granted").style.display='block';
+	} else {
+		console.log("   code so far: " + CodeEntry);
+		document.getElementById("access_granted").style.display='none';
+	}
+}
+var button_list = document.querySelectorAll('table.codekeypad button');
+for (var button of button_list) {
+	console.log('linking up ' + button);
+	button.addEventListener("click", function(){ keypadpress(this); }); 
+}
+var btnCancel = document.querySelectorAll('table.codekeypad td.cancel')[0];
+btnCancel.style.border="1px solid green";
+btnCancel.addEventListener('click',function(){
+	CodeEntry = '';
+	console.log('CODE CLEARED.');
+	document.getElementById("access_granted").style.display='none';
+	audioAlert();
+});
+</script>
+<script src="sbs-ui-wireup.js"></script>
+</body>
+</html>
