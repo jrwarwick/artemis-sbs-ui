@@ -136,19 +136,90 @@ function generateOrrery(containerID){
 
 
 
+
+                                /*var 
+document.addEventListener("DOMContentLoaded", function(event) { 
+	//do work
+	var Bel = document.getElementsByTagName("body")[0];
+	Bel.insertAdjacentHTML("beforeend", '<audio src="audio/changescreen.webm" type="audio/webm" />');
+});
+
+	--refrence--
+			thisAudio = $('<audio/>').attr({
+			src: BASE_AUDIO_PATH + url,
+			preload: "none",
+			onplay:"$(this).siblings('button').css('color', 'yellow');",
+			onended: "$(this).siblings('button').css('color', 'white');",
+			type: mediaTypes[url.substr(url.length - 3)]
+			})      
+*/
+
+
+
+//TODO:
+//function establish audio type:
+	//Start with ogg, fallback to m4a, fallback to webm
+	//then loop and load all needed files
+	//bonus: have a fallback for no supported file types (or MUTE active):  floating div pops up and flashes, then disappears. der blinken lights
+
+/*
+var audAck = new Audio("audio/changescreen.webm" );
 var audAlert = new Audio("audio/alert.m4a" );
-var audAck = new Audio("audio/bleep.m4a" );
+var audInput = new Audio("audio/ui2.webm" );
+*/
+
+
+/******
+var audioExtensions = {};
+	audioExtensions["ogg"] = "ogg";
+	audioExtensions["webm"] = "webm";
+	audioExtensions["mp4"] = "aac";
+var audioPath = "./audio/";
+var audioType;
+
+var audAck;
+var audAlert;
+var audInput;
+
+auDummy = document.getElementById("audUmmy").appendChild(document.createElement("audio"));
+for (var key in audioExtensions) {
+	if (audAck.canPlayType("audio/"+audioExtensions[key]) != '') {
+		audAck.src = audioPath + "alert." + key;
+		//TODO: test it further??
+		audioType =  audAck.src.split(".")[1];
+		console.log("We have a winner: " + audioType);
+		break;
+	}
+}
+audAck = new Audio("audio/changescreen." + audioType);
+audAlert = new Audio("audio/ui18." + audioType);
+audInput = new Audio("audio/ui2." + audioType);
+//artemis// var audAlert = new Audio("audio/alert.m4a" );
+//artemis// var audAck = new Audio("audio/bleep.m4a" );
+
 function audioAlert() {
         window.console && console.log(audAlert.readyState)
 		//audAlert.load();
         audAlert.play();
+		//TODO:bonus: have a fallback for no supported file types (or MUTE active):  floating div pops up and flashes, then disappears. der blinken lights
 }
 
 function audioAcknowledge() {
 	audAck.play();
 }
 
+function audioInput() {
+	audInput.play();
+}
 
+document.addEventListener("DOMContentLoaded", function(event) { 
+	console.log("Attempting to play " + audAck);
+	audioAcknowledge();
+});
+
+******/
+
+//dlete me//document.body.appendChild(createElement)
 
 ////TODO
 //getters for shipname, shiphealth, speed, loc, 
