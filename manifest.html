@@ -9,7 +9,7 @@
 	<!-- Here would be a good place to put your own additional css link for unique/special things like spacing adjsutments based on element ID. The fewer changes in sbs-ui.css,  the better (esp. if you might want to share improvements that really are general purpose)  -->
         <script src="./sbs-ui.js"></script>
 <style>
-#CB1 {
+.MANIFEST {
 /* TODO: comprehend and solidify this voodoo, then move it to css file. 
 http://codepen.io/CrocoDillon/pen/fBJxu
 http://stackoverflow.com/questions/16056591/font-scaling-based-on-width-of-container
@@ -18,11 +18,14 @@ http://stackoverflow.com/questions/16056591/font-scaling-based-on-width-of-conta
 */
 	font-size: calc(.5em + .75vw); /* TODO: comprehend and solidify this voodoo, then move it to css file. -->*/
 }
-#CB1 table td {
+.MANIFEST table td {
 	vertical-align: top;
 	/*white-space: nowrap;*/
 	white-space: pre-wrap;
 	padding-right: 1.5em;
+}
+#CREW{
+	display:none;
 }
 </style>
 </head>
@@ -30,11 +33,70 @@ http://stackoverflow.com/questions/16056591/font-scaling-based-on-width-of-conta
 <div id="super_container">
 	<div id="console_super_controls">
 		<button class="major_action" onclick="window.location.href='menu.html';">MENU</button>
-		<button class="major_action">CREW</button>
-		<button class="major_action major_action_active">CARGO</button>
+		<button class="major_action" onclick="document.getElementById('CREW').style.display='block'; document.getElementById('CB1').style.display='none';">CREW</button>
+		<button class="major_action major_action_active" onclick="document.getElementById('CREW').style.display='none'; document.getElementById('CB1').style.display='block';" >CARGO</button>
 	</div>
 
-	<div id="CB1"  >
+	<div id="CREW" class="MANIFEST">
+	<h3> STANDARD CREW </h3>
+	<table>	<!--As plain as possible-->
+		<tr>
+			<th>NAME</th>
+			<th>CLASS</th>
+			<th>RANK</th>
+			<th>ID</th>
+			<th>MASS</th>
+			<th>SPECIES</th>
+			<th>EMBARK DATE</th>
+		</tr>
+		<tr>
+			<td>John S. Dirk</td>
+			<td>OFFICER</td>
+			<td>CAPTAIN</td>
+			<td>33772-2232</td>
+			<td>70</td>
+			<td>HUMAN-TERRAN</td>
+			<td>2018.06.26.16.47</td>
+		</tr>
+		<tr>
+			<td>A. "Buck" Starr</td>
+			<td>OFFICER</td>
+			<td>QUARTERMASTER</td>
+			<td>223432-2211</td>
+			<td>68</td>
+			<td>HUMAN-TERRAN</td>
+			<td>2018.06.26.16.47</td>
+		</tr>
+		<tr>
+			<td>Rel'Eth'Enarr</td>
+			<td>OFFICER</td>
+			<td>CHIEF ENG.</td>
+			<td>77232-4444</td>
+			<td>107</td>
+			<td>ZORNACKIAN</td>
+			<td>2018.06.26.18.22</td>
+		</tr>
+		<tr>
+			<td>Luis Wu</td>
+			<td>PASSENGER</td>
+			<td>-</td>
+			<td>-772</td>
+			<td>68</td>
+			<td>HUMAN-TERRAN</td>
+			<td>2018.06.26.16.47</td>
+		</tr>
+		<tr>
+			<td>J79</td>
+			<td>A.I.</td>
+			<td>-</td>
+			<td>332328-2189</td>
+			<td>8</td>
+			<td>SiO-Syntdetic</td>
+			<td>2018.06.26.15.32</td>
+		</tr>
+	</table>
+	</div>
+	<div id="CB1" class="MANIFEST">
 	<h3> CARGO BAY 1</h3>
 	<table>	<!--As plain as possible-->
 		<tr>
