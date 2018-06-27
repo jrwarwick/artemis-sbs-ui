@@ -110,6 +110,9 @@ for software resources:
 *  http://codepen.io/colin/pen/kKCDp
 *  https://github.com/sindresorhus/screenfull.js
 
+for media resources:
+*  https://github.com/smcameron/space-nerds-in-space
+
 for information and references:
 *  http://www.st-v-sw.net/STSWvolumetrics.html
 *  http://www.navy.mil/navydata/cno/n87/usw/issue_10/breathe.html
