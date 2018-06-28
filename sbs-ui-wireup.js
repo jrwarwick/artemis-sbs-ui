@@ -19,9 +19,11 @@ document.querySelectorAll('button.major_action').forEach(function(elm,idx,arr){
 
 
 if (sessionStorage["greeting"] == "acknowledged") {
-	document.querySelector("#communique").style.display = 'none';
+	var commElm = document.querySelector("#communique"); 
+	if (commElm) {
+		commElm.style.display = 'none';
+	}
 }
-
 
 
 
