@@ -50,7 +50,7 @@ for (var key in audioExtensions) {
 		break;
 	}
 }
-audAck   = new Audio("audio/changescreen." + audioType);
+audAck   = new Audio("audio/bleep." + audioType);
 audAlert = new Audio("audio/ui13." + audioType);
 audInput = new Audio("audio/ui2." + audioType);
 
