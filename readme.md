@@ -60,6 +60,7 @@ Pages planned or in progress
 	* minigame to contain raiders/infiltraters. Failure to contain results in GM ending mission (with actors that burst into the bridge costumed and artmed with "stun guns").
  * science 
 	* short range sensor that can reveal pre-seeded (by GM) info that is fun/interesting, or maybe even game signficant.
+ * Not sure what to do, but heck: https://developer.mozilla.org/en-US/docs/Web/API/Window/speechSynthesis
 
 Generic-ification to make it useful for many games including, but not limited to:
  * Artemis
